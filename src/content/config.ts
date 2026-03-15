@@ -6,6 +6,7 @@ const postSchema = z.object({
   pillar: z.enum(['11pm-search', 'they-get-it-too', 'no-commission', 'set-the-room', 'add-these']),
   description: z.string(),
   tryThisTonightPrompt: z.string(),
+  author: z.string().default('SparkMode Team'),
   draft: z.boolean().default(false),
 });
 
