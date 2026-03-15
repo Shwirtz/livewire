@@ -14,14 +14,13 @@ const {
 
 const fullTitle = title === 'LiveWire' ? 'LiveWire by SparkMode' : `${title} — LiveWire`;
 
-// Shortened nav labels so they never wrap
 const navItems = [
-  { label: '11pm Search',    href: '/11pm-search'    },
-  { label: 'They Get It Too',href: '/they-get-it-too'},
-  { label: 'No Commission',  href: '/no-commission'  },
-  { label: 'Set the Room',   href: '/set-the-room'   },
-  { label: 'Add These',      href: '/add-these'      },
-  { label: 'About',          href: '/about'          },
+  { label: '11pm Search',     href: '/11pm-search'    },
+  { label: 'They Get It Too', href: '/they-get-it-too'},
+  { label: 'No Commission',   href: '/no-commission'  },
+  { label: 'Set the Room',    href: '/set-the-room'   },
+  { label: 'Add These',       href: '/add-these'      },
+  { label: 'About',           href: '/about'          },
 ];
 ---
 <!DOCTYPE html>
@@ -71,7 +70,7 @@ const navItems = [
       <a href="/" class="header-logo">
         <img src="/livewire-header-solo.png" alt="LiveWire by SparkMode" height="40" />
       </a>
-      <nav class="site-nav">
+      <nav class="site-nav" id="site-nav">
         {navItems.map(item => (
           <a href={item.href}
              class={`nav-link ${Astro.url.pathname.startsWith(item.href) ? 'active' : ''}`}>
@@ -79,11 +78,28 @@ const navItems = [
           </a>
         ))}
       </nav>
-      <a href="https://sparkmode.com" class="header-cta" target="_blank" rel="noopener">
-        Try SparkMode
-      </a>
+      <div class="header-right">
+        <a href="https://sparkmode.com" class="header-cta" target="_blank" rel="noopener">
+          Try SparkMode
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      {navItems.map(item => (
+        <a href={item.href} class="mobile-nav-link">{item.label}</a>
+      ))}
+      <a href="https://sparkmode.com" class="mobile-cta" target="_blank" rel="noopener">
+        Try SparkMode →
+      </a>
+    </div>
+  </div>
 
   <main class="site-main">
     <div class="container">
@@ -92,87 +108,157 @@ const navItems = [
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <span class="footer-left">
-        LiveWire by <a href="https://sparkmode.com" target="_blank" rel="noopener">SparkMode</a>.
-        What's working. What's not. No thought leadership.
-      </span>
-      <a href="https://sparkmode.com" class="footer-right" target="_blank" rel="noopener">sparkmode.com</a>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="/livewire-header-solo.png" alt="LiveWire" height="36" />
+        <p class="footer-tagline">What's working. What's not.<br />No thought leadership.</p>
+        <a href="https://sparkmode.com" class="footer-sparkmode" target="_blank" rel="noopener">
+          by SparkMode →
+        </a>
+      </div>
+      <div class="footer-links">
+        <p class="footer-links-label">Pillars</p>
+        <a href="/11pm-search">The 11pm Search</a>
+        <a href="/they-get-it-too">They Get It Too</a>
+        <a href="/no-commission">No Commission</a>
+        <a href="/set-the-room">Set the Room</a>
+        <a href="/add-these">Add These</a>
+      </div>
+      <div class="footer-links">
+        <p class="footer-links-label">LiveWire</p>
+        <a href="/about">About</a>
+        <a href="https://sparkmode.com" target="_blank" rel="noopener">SparkMode App</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© {new Date().getFullYear()} SparkMode. All rights reserved.</span>
     </div>
   </footer>
 
   <div class="accent-bar-bottom"></div>
   <Analytics />
+
+  <script is:inline>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open.toString());
+      mobileMenu.setAttribute('aria-hidden', (!open).toString());
+    });
+    // Close on nav link click
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      });
+    });
+  </script>
 </body>
 </html>
 
 <style>
-  /* Accent bars */
   .accent-bar-top { height: 4px; background: linear-gradient(to right, var(--color-indigo), var(--color-electric), var(--color-glow)); }
   .accent-bar-bottom { height: 3px; background: linear-gradient(to right, var(--color-spark), #c87d10); }
 
-  /* Header */
+  /* ── Header ── */
   .site-header {
-    background: rgba(13,13,20,0.96);
+    background: rgba(13,13,20,0.97);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(136,136,170,0.12);
-    position: sticky; top: 0; z-index: 100;
+    position: sticky; top: 0; z-index: 200;
   }
-  .header-inner {
-    display: flex; align-items: center; gap: 24px;
-    height: 64px;
-  }
+  .header-inner { display: flex; align-items: center; gap: 20px; height: 64px; }
   .header-logo { flex-shrink: 0; display: flex; align-items: center; }
   .header-logo img { height: 40px; width: auto; display: block; }
+  .header-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 
-  /* Nav — single line, never wraps */
-  .site-nav {
-    display: flex; align-items: center; gap: 2px;
-    flex: 1; overflow: hidden;
-  }
+  /* Desktop nav */
+  .site-nav { display: flex; align-items: center; gap: 2px; flex: 1; overflow: hidden; }
   .nav-link {
-    font-family: var(--font-body);
-    font-size: 12px; font-weight: 600;
-    color: var(--color-muted);
-    text-decoration: none;
-    padding: 5px 9px; border-radius: 4px;
-    white-space: nowrap;
-    transition: color 0.15s, background 0.15s;
-    letter-spacing: 0.02em;
+    font-size: 12px; font-weight: 600; color: var(--color-muted);
+    text-decoration: none; padding: 5px 8px; border-radius: 4px;
+    white-space: nowrap; transition: color 0.15s, background 0.15s;
   }
   .nav-link:hover { color: var(--color-white); background: rgba(255,255,255,0.06); }
   .nav-link.active { color: var(--color-spark); }
 
   .header-cta {
-    flex-shrink: 0;
     font-size: 12px; font-weight: 700;
     color: var(--color-bg); background: var(--color-spark);
     padding: 7px 14px; border-radius: 5px;
-    text-decoration: none; white-space: nowrap;
-    transition: opacity 0.15s;
+    text-decoration: none; white-space: nowrap; transition: opacity 0.15s;
   }
   .header-cta:hover { opacity: 0.85; }
+
+  /* Hamburger button */
+  .hamburger {
+    display: none; flex-direction: column; justify-content: center;
+    gap: 5px; width: 36px; height: 36px; padding: 6px;
+    background: none; border: none; cursor: pointer;
+  }
+  .hamburger span {
+    display: block; height: 2px; background: var(--color-white);
+    border-radius: 2px; transition: transform 0.2s, opacity 0.2s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile slide-down menu */
+  .mobile-menu {
+    display: none; position: fixed; top: 68px; left: 0; right: 0;
+    background: rgba(13,13,20,0.99); backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(136,136,170,0.15);
+    z-index: 199; transform: translateY(-8px); opacity: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    pointer-events: none;
+  }
+  .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+  .mobile-menu-inner { display: flex; flex-direction: column; padding: 16px 24px 24px; gap: 4px; }
+  .mobile-nav-link {
+    font-size: 16px; font-weight: 600; color: var(--color-muted);
+    text-decoration: none; padding: 12px 0;
+    border-bottom: 1px solid rgba(136,136,170,0.08);
+    transition: color 0.15s;
+  }
+  .mobile-nav-link:hover { color: var(--color-white); }
+  .mobile-cta {
+    margin-top: 16px; font-size: 15px; font-weight: 700;
+    color: var(--color-spark); text-decoration: none;
+  }
 
   /* Main */
   .site-main { flex: 1; padding: 56px 0 80px; }
 
-  /* Footer */
-  .site-footer {
-    border-top: 1px solid rgba(136,136,170,0.12);
-    padding: 28px 0;
-    font-size: 13px;
-    color: rgba(136,136,170,0.5);
-  }
-  .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-  .footer-left a, .footer-right { color: rgba(136,136,170,0.5); text-decoration: none; }
-  .footer-left a:hover, .footer-right:hover { color: var(--color-muted); }
+  /* ── Footer ── */
+  .site-footer { border-top: 1px solid rgba(136,136,170,0.12); padding: 48px 0 24px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+  .footer-brand img { height: 36px; width: auto; margin-bottom: 16px; display: block; }
+  .footer-tagline { font-size: 13px; color: var(--color-muted); line-height: 1.6; margin-bottom: 16px; }
+  .footer-sparkmode { font-size: 13px; font-weight: 700; color: var(--color-spark); text-decoration: none; }
+  .footer-sparkmode:hover { opacity: 0.8; }
+  .footer-links { display: flex; flex-direction: column; gap: 10px; }
+  .footer-links-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(136,136,170,0.4); margin-bottom: 4px; }
+  .footer-links a { font-size: 14px; color: var(--color-muted); text-decoration: none; transition: color 0.15s; }
+  .footer-links a:hover { color: var(--color-white); }
+  .footer-bottom { font-size: 12px; color: rgba(136,136,170,0.3); padding-top: 24px; border-top: 1px solid rgba(136,136,170,0.08); }
 
+  /* ── Responsive ── */
   @media (max-width: 860px) {
     .site-nav { display: none; }
-    .header-inner { gap: 12px; }
+    .hamburger { display: flex; }
+    .mobile-menu { display: block; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
   }
   @media (max-width: 600px) {
-    .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
     .site-main { padding: 40px 0 60px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .header-cta { display: none; }
   }
 </style>
