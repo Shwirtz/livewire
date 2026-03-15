@@ -7,12 +7,12 @@ export async function getStaticPaths() {
   return PILLARS.map(p => ({ params: { pillar: p } }));
 }
 
-const PILLAR_META: Record<string, { label: string; color: string; description: string }> = {
-  '11pm-search':     { label: 'The 11pm Search',  color: '#7B2FFF', description: 'Researched answers to what parents actually Google at night. Specific, cited, no filler.' },
-  'they-get-it-too': { label: 'They Get It Too',  color: '#00D2FF', description: 'How well-known people describe learning differently, in their own words. No labels.' },
-  'no-commission':   { label: 'No Commission',    color: '#F5A623', description: 'Product recs with zero affiliate codes. We make $0.00 from any link on this site.' },
-  'set-the-room':    { label: 'Set the Room',     color: '#00A896', description: 'Playlists and ambient audio mapped to specific parenting moments. Not just "focus music."' },
-  'add-these':       { label: 'Add These',        color: '#4F3FFF', description: 'Five people worth your feed this week. Short, opinionated, no fluff.' },
+const PILLAR_META: Record<string, { label: string; color: string; description: string; manifesto: string }> = {
+  '11pm-search':     { label: 'The 11pm Search',  color: '#7B2FFF', description: 'Researched answers to what parents actually Google at night. Specific, cited, no filler.', manifesto: 'Every post in this pillar starts with a real search query. Not a content strategy. Something a parent actually typed, alone, late.' },
+  'they-get-it-too': { label: 'They Get It Too',  color: '#00D2FF', description: 'How well-known people describe learning differently, in their own words. No labels.', manifesto: 'We let them say it themselves. No diagnosis applied. No narrative imposed. Just what they said and why it still matters.' },
+  'no-commission':   { label: 'No Commission',    color: '#F5A623', description: 'Product recs with zero affiliate codes. We make $0.00 from any link on this site.', manifesto: 'The disclaimer is the whole point. When we say a thing works, we have nothing to gain from saying it.' },
+  'set-the-room':    { label: 'Set the Room',     color: '#00A896', description: 'Playlists and ambient audio mapped to specific parenting moments. Not just "focus music."', manifesto: 'The ten minutes before homework matters as much as the homework. Sound changes rooms. Here\'s how we use it.' },
+  'add-these':       { label: 'Add These',        color: '#4F3FFF', description: 'Five people worth your feed this week. Short, opinionated, no fluff.', manifesto: 'No courses in the bio. No frameworks to sell. Just people putting out real signal in a space full of noise.' },
 };
 
 const { pillar } = Astro.params;
@@ -24,9 +24,10 @@ const posts = (await getCollection(pillar as any))
 ---
 <BaseLayout title={meta.label} description={meta.description}>
   <div class="pillar-header" style={`--accent: ${meta.color}`}>
-    <a href="/" class="back-link">← All of LiveWire</a>
+    <a href="/" class="back-link">← LiveWire</a>
     <h1 class="pillar-title">{meta.label}</h1>
     <p class="pillar-desc">{meta.description}</p>
+    <p class="pillar-manifesto">{meta.manifesto}</p>
   </div>
 
   {posts.length > 0 ? (
@@ -54,7 +55,8 @@ const posts = (await getCollection(pillar as any))
   .back-link { display: inline-block; font-size: 13px; color: var(--color-muted); text-decoration: none; margin-bottom: 20px; transition: color 0.15s; }
   .back-link:hover { color: var(--color-white); }
   .pillar-title { font-family: var(--font-display); font-size: clamp(32px, 5vw, 56px); font-weight: 700; letter-spacing: 0.04em; color: var(--accent); margin-bottom: 12px; }
-  .pillar-desc { font-size: 16px; color: var(--color-muted); line-height: 1.65; max-width: 520px; }
+  .pillar-desc { font-size: 16px; color: var(--color-muted); line-height: 1.65; max-width: 520px; margin-bottom: 16px; }
+  .pillar-manifesto { font-size: 15px; color: rgba(136,136,170,0.6); line-height: 1.65; max-width: 520px; font-style: italic; }
 
   .post-card {
     display: block; padding: 36px 0; max-width: 720px;

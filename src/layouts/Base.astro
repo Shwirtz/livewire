@@ -129,6 +129,13 @@ const navItems = [
         <a href="/about">About</a>
         <a href="https://sparkmode.com" target="_blank" rel="noopener">SparkMode App</a>
       </div>
+      <div class="footer-links">
+        <p class="footer-links-label">Follow</p>
+        <a href="https://x.com/GoSparkMode" target="_blank" rel="noopener">X / Twitter</a>
+        <a href="https://instagram.com/GoSparkMode" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@GoSparkMode" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://youtube.com/GoSparkMode" target="_blank" rel="noopener">YouTube</a>
+      </div>
     </div>
     <div class="container footer-bottom">
       <span>© {new Date().getFullYear()} SparkMode. All rights reserved.</span>
@@ -237,7 +244,7 @@ const navItems = [
 
   /* ── Footer ── */
   .site-footer { border-top: 1px solid rgba(136,136,170,0.12); padding: 48px 0 24px; }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
   .footer-brand img { height: 36px; width: auto; margin-bottom: 16px; display: block; }
   .footer-tagline { font-size: 13px; color: var(--color-muted); line-height: 1.6; margin-bottom: 16px; }
   .footer-sparkmode { font-size: 13px; font-weight: 700; color: var(--color-spark); text-decoration: none; }
@@ -255,8 +262,7 @@ const navItems = [
     .mobile-menu { display: block; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .footer-brand { grid-column: 1 / -1; }
-  }
-  @media (max-width: 600px) {
+  }  @media (max-width: 600px) {
     .site-main { padding: 40px 0 60px; }
     .footer-grid { grid-template-columns: 1fr; gap: 32px; }
     .header-cta { display: none; }

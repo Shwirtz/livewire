@@ -23,6 +23,18 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 const meta = PILLAR_META[post.data.pillar];
 const canonicalURL = `https://livewire.sparkmode.com/${post.data.pillar}/${post.slug}`;
+
+// Reading time estimate
+const wordCount = post.body.split(/\s+/).length;
+const readingMins = Math.max(1, Math.round(wordCount / 200));
+
+// Next article in same pillar
+const allInPillar = (await getCollection(post.data.pillar as any))
+  .filter(p => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const currentIndex = allInPillar.findIndex(p => p.slug === post.slug);
+const nextPost = allInPillar[currentIndex + 1] ?? null;
+
 const articleSchema = {
   "@context": "https://schema.org", "@type": "Article",
   "headline": post.data.title, "description": post.data.description,
@@ -51,6 +63,7 @@ const articleSchema = {
           {post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
         </time>
         <span>by {post.data.author}</span>
+        <span>{readingMins} min read</span>
       </div>
     </header>
 
@@ -64,8 +77,15 @@ const articleSchema = {
     </footer>
 
     <nav class="article-nav">
-      <a href={`/${post.data.pillar}`} class="nav-back">← More {meta.label}</a>
-      <a href="/" class="nav-home">All of LiveWire</a>
+      <a href={`/${post.data.pillar}`} class="nav-back">← {meta.label}</a>
+      {nextPost ? (
+        <a href={`/${post.data.pillar}/${nextPost.slug}`} class="nav-next">
+          <span class="nav-next-label">Next up</span>
+          <span class="nav-next-title">{nextPost.data.title}</span>
+        </a>
+      ) : (
+        <a href="/" class="nav-home">All of LiveWire</a>
+      )}
     </nav>
   </article>
 </BaseLayout>
@@ -107,6 +127,17 @@ const articleSchema = {
     border-left: 3px solid var(--accent); padding-left: 20px;
     margin: 32px 0; color: var(--color-muted); font-style: italic;
   }
+  /* Pull quote — use > ## text in markdown for a big callout */
+  .article-body blockquote h2 {
+    font-family: var(--font-display); font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700; letter-spacing: 0.04em; line-height: 1.2;
+    color: var(--color-white); margin: 0; border: none;
+  }
+  .article-body blockquote:has(h2) {
+    border-left: none; padding: 24px 28px;
+    background: rgba(136,136,170,0.06);
+    border-radius: 8px; margin: 40px 0;
+  }
 
   /* Try This Tonight — high contrast signature element */
   .try-this-tonight {
@@ -120,9 +151,17 @@ const articleSchema = {
   .ttt-text { font-size: 17px; line-height: 1.7; color: var(--color-bg); font-weight: 600; }
 
   /* Nav */
-  .article-nav { display: flex; justify-content: space-between; padding-top: 28px; border-top: 1px solid rgba(136,136,170,0.12); font-size: 14px; }
-  .nav-back { color: var(--accent); text-decoration: none; font-weight: 700; }
+  .article-nav {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-top: 28px; border-top: 1px solid rgba(136,136,170,0.12);
+    gap: 24px;
+  }
+  .nav-back { color: var(--accent); text-decoration: none; font-weight: 700; font-size: 14px; white-space: nowrap; }
   .nav-back:hover { opacity: 0.8; }
-  .nav-home { color: var(--color-muted); text-decoration: none; }
+  .nav-next { text-decoration: none; text-align: right; max-width: 340px; }
+  .nav-next-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 4px; }
+  .nav-next-title { display: block; font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--color-white); line-height: 1.3; transition: color 0.15s; }
+  .nav-next:hover .nav-next-title { color: var(--accent); }
+  .nav-home { color: var(--color-muted); text-decoration: none; font-size: 14px; }
   .nav-home:hover { color: var(--color-white); }
 </style>
