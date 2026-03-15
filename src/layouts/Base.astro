@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title?: string;
@@ -91,5 +92,6 @@ const navItems = [
   </footer>
 
   <div class="gradient-bar-bottom"></div>
+  <Analytics />
 </body>
 </html>
