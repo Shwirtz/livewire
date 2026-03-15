@@ -5,26 +5,25 @@ import Analytics from '@vercel/analytics/astro';
 interface Props {
   title?: string;
   description?: string;
-  pillar?: string;
 }
 
 const {
   title = 'LiveWire',
   description = "What's working. What's not. No thought leadership.",
-  pillar,
 } = Astro.props;
 
 const fullTitle = title === 'LiveWire' ? 'LiveWire by SparkMode' : `${title} — LiveWire`;
 
+// Shortened nav labels so they never wrap
 const navItems = [
-  { label: 'The 11pm Search', href: '/11pm-search', class: 'pillar-11pm' },
-  { label: 'They Get It Too', href: '/they-get-it-too', class: 'pillar-they' },
-  { label: 'No Commission',   href: '/no-commission',  class: 'pillar-nocom' },
-  { label: 'Set the Room',    href: '/set-the-room',   class: 'pillar-room' },
-  { label: 'Add These',       href: '/add-these',      class: 'pillar-add' },
+  { label: '11pm Search',    href: '/11pm-search'    },
+  { label: 'They Get It Too',href: '/they-get-it-too'},
+  { label: 'No Commission',  href: '/no-commission'  },
+  { label: 'Set the Room',   href: '/set-the-room'   },
+  { label: 'Add These',      href: '/add-these'      },
+  { label: 'About',          href: '/about'          },
 ];
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,143 +31,148 @@ const navItems = [
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
-
-  <!-- OG -->
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content="/livewire-og.png" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-
-  <!-- Google Fonts -->
-  <!-- Structured data -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
   <script type="application/ld+json" is:inline set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "LiveWire",
-    "description": "What's working. What's not. No thought leadership.",
-    "url": "https://livewire.sparkmode.com",
-    "publisher": {
-      "@type": "Organization",
-      "name": "SparkMode",
-      "url": "https://sparkmode.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://livewire.sparkmode.com/livewire-og.png"
-      }
-    },
-    "inLanguage": "en-US"
+    "@context":"https://schema.org","@type":"Blog",
+    "name":"LiveWire","description":"What's working. What's not. No thought leadership.",
+    "url":"https://livewire.sparkmode.com",
+    "publisher":{"@type":"Organization","name":"SparkMode","url":"https://sparkmode.com"}
   })} />
-
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DYX550SGKS"></script>
   <script is:inline>
-    window.dataLayer = window.dataLayer || [];
+    window.dataLayer=window.dataLayer||[];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-DYX550SGKS', {
-      page_location: window.location.href,
-      page_title: document.title
-    });
-
-    // ── LiveWire custom events ─────────────────────────────────────────────
-
-    // 1. Pillar view — which content pillar is being read
-    const pillarMatch = window.location.pathname.match(
-      /^\/(11pm-search|they-get-it-too|no-commission|set-the-room|add-these)/
-    );
-    if (pillarMatch) {
-      gtag('event', 'pillar_view', {
-        pillar_name: pillarMatch[1],
-        is_article: window.location.pathname.split('/').length > 3
-      });
+    gtag('js',new Date());
+    gtag('config','G-DYX550SGKS',{page_location:window.location.href,page_title:document.title});
+    const pillarMatch=window.location.pathname.match(/^\/(11pm-search|they-get-it-too|no-commission|set-the-room|add-these)/);
+    if(pillarMatch){gtag('event','pillar_view',{pillar_name:pillarMatch[1],is_article:window.location.pathname.split('/').length>3});}
+    if(window.location.pathname.split('/').length>3){
+      const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){gtag('event','article_read',{article_url:window.location.pathname,pillar:pillarMatch?pillarMatch[1]:'unknown'});obs.disconnect();}});},{threshold:0.1});
+      window.addEventListener('load',()=>{const f=document.querySelector('.try-this-tonight');if(f)obs.observe(f);});
     }
-
-    // 2. Article read — fires when user scrolls past 75% of the page
-    if (window.location.pathname.split('/').length > 3) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            gtag('event', 'article_read', {
-              article_url: window.location.pathname,
-              pillar: pillarMatch ? pillarMatch[1] : 'unknown'
-            });
-            observer.disconnect();
-          }
-        });
-      }, { threshold: 0.1 });
-      window.addEventListener('load', () => {
-        const footer = document.querySelector('.try-this-tonight');
-        if (footer) observer.observe(footer);
-      });
-    }
-
-    // 3. SparkMode CTA click — tracks every "Try SparkMode" click
-    window.addEventListener('load', () => {
-      document.querySelectorAll('a.header-cta').forEach(el => {
-        el.addEventListener('click', () => {
-          gtag('event', 'sparkmode_cta_click', {
-            location: 'header',
-            source_pillar: pillarMatch ? pillarMatch[1] : 'homepage'
-          });
-        });
-      });
-    });
+    window.addEventListener('load',()=>{document.querySelectorAll('a.header-cta').forEach(el=>{el.addEventListener('click',()=>{gtag('event','sparkmode_cta_click',{location:'header',source_pillar:pillarMatch?pillarMatch[1]:'homepage'});});});});
   </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div class="gradient-bar-top"></div>
+  <div class="accent-bar-top"></div>
 
   <header class="site-header">
-    <div class="container">
+    <div class="container header-inner">
       <a href="/" class="header-logo">
-        <img src="/livewire-header-solo.png" alt="LiveWire by SparkMode" />
+        <img src="/livewire-header-solo.png" alt="LiveWire by SparkMode" height="40" />
       </a>
-      <nav>
-        <ul class="header-nav">
-          {navItems.map(item => (
-            <li>
-              <a href={item.href}
-                 class={Astro.url.pathname.startsWith(item.href) ? 'active' : ''}>
-                {item.label}
-              </a>
-            </li>
-          ))}
-          <li>
-            <a href="/about"
-               class={Astro.url.pathname === '/about' ? 'active' : ''}>
-              About
-            </a>
-          </li>
-          <li>
-            <a href="https://sparkmode.com" class="header-cta" target="_blank" rel="noopener">
-              Try SparkMode
-            </a>
-          </li>
-        </ul>
+      <nav class="site-nav">
+        {navItems.map(item => (
+          <a href={item.href}
+             class={`nav-link ${Astro.url.pathname.startsWith(item.href) ? 'active' : ''}`}>
+            {item.label}
+          </a>
+        ))}
       </nav>
+      <a href="https://sparkmode.com" class="header-cta" target="_blank" rel="noopener">
+        Try SparkMode
+      </a>
     </div>
   </header>
 
-  <main>
-    <slot />
+  <main class="site-main">
+    <div class="container">
+      <slot />
+    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <span>LiveWire by <a href="https://sparkmode.com" target="_blank" rel="noopener">SparkMode</a>. What's working. What's not. No thought leadership.</span>
-      <a href="https://sparkmode.com" target="_blank" rel="noopener">sparkmode.com</a>
+    <div class="container footer-inner">
+      <span class="footer-left">
+        LiveWire by <a href="https://sparkmode.com" target="_blank" rel="noopener">SparkMode</a>.
+        What's working. What's not. No thought leadership.
+      </span>
+      <a href="https://sparkmode.com" class="footer-right" target="_blank" rel="noopener">sparkmode.com</a>
     </div>
   </footer>
 
-  <div class="gradient-bar-bottom"></div>
+  <div class="accent-bar-bottom"></div>
   <Analytics />
 </body>
 </html>
+
+<style>
+  /* Accent bars */
+  .accent-bar-top { height: 4px; background: linear-gradient(to right, var(--color-indigo), var(--color-electric), var(--color-glow)); }
+  .accent-bar-bottom { height: 3px; background: linear-gradient(to right, var(--color-spark), #c87d10); }
+
+  /* Header */
+  .site-header {
+    background: rgba(13,13,20,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(136,136,170,0.12);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .header-inner {
+    display: flex; align-items: center; gap: 24px;
+    height: 64px;
+  }
+  .header-logo { flex-shrink: 0; display: flex; align-items: center; }
+  .header-logo img { height: 40px; width: auto; display: block; }
+
+  /* Nav — single line, never wraps */
+  .site-nav {
+    display: flex; align-items: center; gap: 2px;
+    flex: 1; overflow: hidden;
+  }
+  .nav-link {
+    font-family: var(--font-body);
+    font-size: 12px; font-weight: 600;
+    color: var(--color-muted);
+    text-decoration: none;
+    padding: 5px 9px; border-radius: 4px;
+    white-space: nowrap;
+    transition: color 0.15s, background 0.15s;
+    letter-spacing: 0.02em;
+  }
+  .nav-link:hover { color: var(--color-white); background: rgba(255,255,255,0.06); }
+  .nav-link.active { color: var(--color-spark); }
+
+  .header-cta {
+    flex-shrink: 0;
+    font-size: 12px; font-weight: 700;
+    color: var(--color-bg); background: var(--color-spark);
+    padding: 7px 14px; border-radius: 5px;
+    text-decoration: none; white-space: nowrap;
+    transition: opacity 0.15s;
+  }
+  .header-cta:hover { opacity: 0.85; }
+
+  /* Main */
+  .site-main { flex: 1; padding: 56px 0 80px; }
+
+  /* Footer */
+  .site-footer {
+    border-top: 1px solid rgba(136,136,170,0.12);
+    padding: 28px 0;
+    font-size: 13px;
+    color: rgba(136,136,170,0.5);
+  }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .footer-left a, .footer-right { color: rgba(136,136,170,0.5); text-decoration: none; }
+  .footer-left a:hover, .footer-right:hover { color: var(--color-muted); }
+
+  @media (max-width: 860px) {
+    .site-nav { display: none; }
+    .header-inner { gap: 12px; }
+  }
+  @media (max-width: 600px) {
+    .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
+    .site-main { padding: 40px 0 60px; }
+  }
+</style>

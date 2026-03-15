@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 const PILLAR_META: Record<string, { label: string; color: string; description: string }> = {
   '11pm-search':     { label: 'The 11pm Search',  color: '#7B2FFF', description: 'Researched answers to what parents actually Google at night. Specific, cited, no filler.' },
   'they-get-it-too': { label: 'They Get It Too',  color: '#00D2FF', description: 'How well-known people describe learning differently, in their own words. No labels.' },
-  'no-commission':   { label: 'No Commission',    color: '#F5A623', description: 'Product recs with zero affiliate codes. We make $0.00 from these links.' },
+  'no-commission':   { label: 'No Commission',    color: '#F5A623', description: 'Product recs with zero affiliate codes. We make $0.00 from any link on this site.' },
   'set-the-room':    { label: 'Set the Room',     color: '#00A896', description: 'Playlists and ambient audio mapped to specific parenting moments. Not just "focus music."' },
   'add-these':       { label: 'Add These',        color: '#4F3FFF', description: 'Five people worth your feed this week. Short, opinionated, no fluff.' },
 };
@@ -25,25 +25,23 @@ const posts = (await getCollection(pillar as any))
 <BaseLayout title={meta.label} description={meta.description}>
   <div class="pillar-header" style={`--accent: ${meta.color}`}>
     <a href="/" class="back-link">← All of LiveWire</a>
-    <span class="pillar-badge">{meta.label}</span>
+    <h1 class="pillar-title">{meta.label}</h1>
     <p class="pillar-desc">{meta.description}</p>
   </div>
 
   {posts.length > 0 ? (
     <section class="feed">
       {posts.map(post => (
-        <article class="post-card">
-          <h2 class="post-title">
-            <a href={`/${pillar}/${post.slug}`}>{post.data.title}</a>
-          </h2>
+        <a href={`/${pillar}/${post.slug}`} class="post-card" style={`--accent: ${meta.color}`}>
+          <h2 class="post-title">{post.data.title}</h2>
           <p class="post-desc">{post.data.description}</p>
-          <div class="post-meta">
+          <span class="post-meta">
             <time datetime={post.data.date.toISOString()}>
               {post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
             </time>
-            <a href={`/${pillar}/${post.slug}`} class="post-read">Read →</a>
-          </div>
-        </article>
+            <span class="post-read">Read →</span>
+          </span>
+        </a>
       ))}
     </section>
   ) : (
@@ -52,25 +50,21 @@ const posts = (await getCollection(pillar as any))
 </BaseLayout>
 
 <style>
-  .pillar-header { margin-bottom: 48px; }
-  .back-link { font-size: 13px; color: var(--color-muted); text-decoration: none; display: block; margin-bottom: 20px; }
+  .pillar-header { margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid rgba(136,136,170,0.1); }
+  .back-link { display: inline-block; font-size: 13px; color: var(--color-muted); text-decoration: none; margin-bottom: 20px; transition: color 0.15s; }
   .back-link:hover { color: var(--color-white); }
-  .pillar-badge {
-    display: inline-block;
-    font-family: var(--font-display);
-    font-size: clamp(28px, 5vw, 48px);
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 0.06em;
-    margin-bottom: 16px;
+  .pillar-title { font-family: var(--font-display); font-size: clamp(32px, 5vw, 56px); font-weight: 700; letter-spacing: 0.04em; color: var(--accent); margin-bottom: 12px; }
+  .pillar-desc { font-size: 16px; color: var(--color-muted); line-height: 1.65; max-width: 520px; }
+
+  .post-card {
+    display: block; padding: 36px 0; max-width: 720px;
+    border-bottom: 1px solid rgba(136,136,170,0.1);
+    text-decoration: none; transition: opacity 0.12s;
   }
-  .pillar-desc { font-size: 17px; color: var(--color-muted); line-height: 1.65; max-width: 520px; }
-  .post-card { padding: 32px 0; border-bottom: 1px solid rgba(136,136,170,0.12); }
-  .post-title { font-family: var(--font-display); font-size: clamp(20px, 3vw, 28px); font-weight: 700; letter-spacing: 0.03em; margin-bottom: 10px; }
-  .post-title a { color: var(--color-white); text-decoration: none; }
-  .post-title a:hover { color: var(--accent); }
-  .post-desc { font-size: 16px; line-height: 1.65; color: var(--color-muted); margin-bottom: 14px; }
-  .post-meta { display: flex; justify-content: space-between; font-size: 13px; color: rgba(136,136,170,0.6); }
-  .post-read { color: var(--accent); text-decoration: none; font-weight: 700; }
-  .empty { font-size: 17px; color: var(--color-muted); font-style: italic; padding: 48px 0; }
+  .post-card:hover { opacity: 0.85; }
+  .post-title { font-family: var(--font-display); font-size: clamp(20px, 3vw, 28px); font-weight: 700; letter-spacing: 0.03em; color: var(--color-white); margin-bottom: 10px; line-height: 1.1; }
+  .post-desc { font-size: 15px; line-height: 1.6; color: var(--color-muted); margin-bottom: 14px; }
+  .post-meta { display: flex; justify-content: space-between; font-size: 12px; color: rgba(136,136,170,0.5); }
+  .post-read { color: var(--accent); font-weight: 700; font-size: 13px; }
+  .empty { padding: 60px 0; font-size: 17px; color: var(--color-muted); font-style: italic; }
 </style>

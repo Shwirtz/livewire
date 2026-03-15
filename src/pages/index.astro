@@ -24,13 +24,13 @@ const PILLAR_META: Record<string, { label: string; color: string; day: string }>
   <section class="hero">
     <p class="hero-eyebrow">From the SparkMode team</p>
     <h1 class="hero-headline">Real talk for parents<br />who've tried everything.</h1>
-    <p class="hero-sub">No frameworks. No signature methods. No book coming out in spring.<br />Just what's actually working, what isn't, and why.</p>
+    <p class="hero-sub">No frameworks. No signature methods. No book coming out in spring. Just what's actually working, what isn't, and why.</p>
   </section>
 
   <section class="pillars-grid">
     {Object.entries(PILLAR_META).map(([slug, meta]) => (
       <a href={`/${slug}`} class="pillar-card" style={`--accent: ${meta.color}`}>
-        <span class="pillar-pill">{meta.label}</span>
+        <span class="pillar-name">{meta.label}</span>
         <span class="pillar-day">{meta.day}</span>
       </a>
     ))}
@@ -38,144 +38,88 @@ const PILLAR_META: Record<string, { label: string; color: string; day: string }>
 
   {allPosts.length > 0 ? (
     <section class="feed">
-      <h2 class="feed-title">Latest</h2>
+      <h2 class="feed-label">Latest</h2>
       {allPosts.map(post => {
         const meta = PILLAR_META[post.data.pillar];
         const url = `/${post.data.pillar}/${post.slug}`;
         return (
-          <article class="post-card">
-            <a href={`/${post.data.pillar}`} class="post-pillar-tag" style={`color: ${meta.color}; border-color: ${meta.color}22`}>
-              {meta.label}
-            </a>
-            <h2 class="post-title"><a href={url}>{post.data.title}</a></h2>
+          <a href={url} class="post-card">
+            <span class="post-pillar-tag" style={`color: ${meta.color}`}>{meta.label}</span>
+            <h2 class="post-title">{post.data.title}</h2>
             <p class="post-desc">{post.data.description}</p>
-            <div class="post-meta">
+            <span class="post-meta">
               <time datetime={post.data.date.toISOString()}>
                 {post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
               </time>
-              <a href={url} class="post-read">Read →</a>
-            </div>
-          </article>
+              <span class="post-read">Read →</span>
+            </span>
+          </a>
         );
       })}
     </section>
   ) : (
-    <section class="coming-soon">
-      <p>First posts dropping soon. Check back Monday.</p>
-    </section>
+    <p class="coming-soon">First posts dropping soon. Check back Monday.</p>
   )}
 </BaseLayout>
 
 <style>
-  .hero { padding: 0 0 64px; }
-  .hero-eyebrow {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--color-spark);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  .hero-headline {
-    font-family: var(--font-display);
-    font-size: clamp(36px, 6vw, 64px);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: 0.04em;
-    color: var(--color-white);
-    margin-bottom: 20px;
-  }
-  .hero-sub {
-    font-size: 18px;
-    line-height: 1.65;
-    color: var(--color-muted);
-    max-width: 560px;
-  }
+  /* Hero */
+  .hero { padding-bottom: 40px; border-bottom: 1px solid rgba(136,136,170,0.1); margin-bottom: 32px; }
+  .hero-eyebrow { font-size: 11px; font-weight: 700; color: var(--color-spark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px; }
+  .hero-headline { font-family: var(--font-display); font-size: clamp(40px, 6vw, 72px); font-weight: 700; line-height: 1.02; letter-spacing: 0.03em; color: var(--color-white); margin-bottom: 18px; }
+  .hero-sub { font-size: 17px; line-height: 1.65; color: var(--color-muted); max-width: 540px; }
 
-  /* Pillar grid */
-  .pillars-grid {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 64px;
-  }
+  /* Pillar cards */
+  .pillars-grid { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
   .pillar-card {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 12px 16px;
-    border: 1px solid var(--accent);
+    flex: 1; min-width: 160px;
+    display: flex; flex-direction: column; gap: 4px;
+    padding: 14px 18px;
+    border: 1.5px solid var(--accent);
     border-radius: 8px;
     text-decoration: none;
+    background: transparent;
     transition: background 0.15s;
-    flex: 1;
-    min-width: 140px;
   }
   .pillar-card:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
-  .pillar-pill { font-size: 14px; font-weight: 700; color: var(--accent); }
-  .pillar-day { font-size: 12px; color: var(--color-muted); }
+  .pillar-name { font-size: 13px; font-weight: 700; color: var(--accent); }
+  .pillar-day { font-size: 11px; color: var(--color-muted); }
 
   /* Feed */
-  .feed-title {
+  .feed-label {
     font-family: var(--font-display);
-    font-size: 13px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--color-muted);
-    margin-bottom: 32px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(136,136,170,0.2);
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--color-muted); margin-bottom: 4px;
   }
+
+  /* Post cards — entire card is the link */
   .post-card {
-    padding: 32px 0;
-    border-bottom: 1px solid rgba(136,136,170,0.12);
+    display: block;
+    padding: 36px 0;
+    border-bottom: 1px solid rgba(136,136,170,0.1);
+    text-decoration: none;
+    max-width: 720px;
+    transition: opacity 0.12s;
   }
+  .post-card:hover { opacity: 0.85; }
   .post-pillar-tag {
     display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 3px 8px;
-    border: 1px solid;
-    border-radius: 3px;
-    margin-bottom: 12px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 10px;
   }
   .post-title {
     font-family: var(--font-display);
-    font-size: clamp(22px, 3vw, 30px);
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    line-height: 1.15;
-    margin-bottom: 12px;
+    font-size: clamp(22px, 3vw, 32px); font-weight: 700;
+    letter-spacing: 0.03em; line-height: 1.1;
+    color: var(--color-white); margin-bottom: 10px;
   }
-  .post-title a { color: var(--color-white); text-decoration: none; }
-  .post-title a:hover { color: var(--color-spark); }
-  .post-desc {
-    font-size: 16px;
-    line-height: 1.65;
-    color: var(--color-muted);
-    margin-bottom: 16px;
-    max-width: 600px;
-  }
-  .post-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 13px;
-    color: rgba(136,136,170,0.6);
-  }
-  .post-read {
-    color: var(--color-spark);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-  }
-  .coming-soon {
-    padding: 64px 0;
-    font-size: 18px;
-    color: var(--color-muted);
-    font-style: italic;
+  .post-desc { font-size: 15px; line-height: 1.6; color: var(--color-muted); margin-bottom: 14px; }
+  .post-meta { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(136,136,170,0.5); }
+  .post-read { color: var(--color-spark); font-weight: 700; font-size: 13px; }
+
+  .coming-soon { padding: 60px 0; font-size: 17px; color: var(--color-muted); font-style: italic; }
+
+  @media (max-width: 600px) {
+    .pillar-card { min-width: calc(50% - 5px); }
   }
 </style>
