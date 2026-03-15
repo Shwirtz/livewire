@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await Promise.all([
+  getCollection('11pm-search'),
+  getCollection('they-get-it-too'),
+  getCollection('no-commission'),
+  getCollection('set-the-room'),
+  getCollection('add-these'),
+])).flat().filter(p => !p.data.draft);
+
+allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const PILLAR_META: Record<string, { label: string; color: string; day: string }> = {
+  '11pm-search':     { label: 'The 11pm Search',  color: '#7B2FFF', day: 'Mon & Wed' },
+  'they-get-it-too': { label: 'They Get It Too',  color: '#00D2FF', day: 'Tuesday'   },
+  'no-commission':   { label: 'No Commission',    color: '#F5A623', day: 'Thursday'  },
+  'set-the-room':    { label: 'Set the Room',     color: '#00A896', day: 'Friday'    },
+  'add-these':       { label: 'Add These',        color: '#4F3FFF', day: 'Rotating'  },
+};
+---
+<BaseLayout>
+  <section class="hero">
+    <p class="hero-eyebrow">From the SparkMode team</p>
+    <h1 class="hero-headline">Real talk for parents<br />who've tried everything.</h1>
+    <p class="hero-sub">No frameworks. No signature methods. No book coming out in spring.<br />Just what's actually working, what isn't, and why.</p>
+  </section>
+
+  <section class="pillars-grid">
+    {Object.entries(PILLAR_META).map(([slug, meta]) => (
+      <a href={`/${slug}`} class="pillar-card" style={`--accent: ${meta.color}`}>
+        <span class="pillar-pill">{meta.label}</span>
+        <span class="pillar-day">{meta.day}</span>
+      </a>
+    ))}
+  </section>
+
+  {allPosts.length > 0 ? (
+    <section class="feed">
+      <h2 class="feed-title">Latest</h2>
+      {allPosts.map(post => {
+        const meta = PILLAR_META[post.data.pillar];
+        const url = `/${post.data.pillar}/${post.slug}`;
+        return (
+          <article class="post-card">
+            <a href={`/${post.data.pillar}`} class="post-pillar-tag" style={`color: ${meta.color}; border-color: ${meta.color}22`}>
+              {meta.label}
+            </a>
+            <h2 class="post-title"><a href={url}>{post.data.title}</a></h2>
+            <p class="post-desc">{post.data.description}</p>
+            <div class="post-meta">
+              <time datetime={post.data.date.toISOString()}>
+                {post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+              </time>
+              <a href={url} class="post-read">Read →</a>
+            </div>
+          </article>
+        );
+      })}
+    </section>
+  ) : (
+    <section class="coming-soon">
+      <p>First posts dropping soon. Check back Monday.</p>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .hero { padding: 0 0 64px; }
+  .hero-eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-spark);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.04em;
+    color: var(--color-white);
+    margin-bottom: 20px;
+  }
+  .hero-sub {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--color-muted);
+    max-width: 560px;
+  }
+
+  /* Pillar grid */
+  .pillars-grid {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+  }
+  .pillar-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 16px;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s;
+    flex: 1;
+    min-width: 140px;
+  }
+  .pillar-card:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+  .pillar-pill { font-size: 14px; font-weight: 700; color: var(--accent); }
+  .pillar-day { font-size: 12px; color: var(--color-muted); }
+
+  /* Feed */
+  .feed-title {
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 32px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(136,136,170,0.2);
+  }
+  .post-card {
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(136,136,170,0.12);
+  }
+  .post-pillar-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 3px 8px;
+    border: 1px solid;
+    border-radius: 3px;
+    margin-bottom: 12px;
+  }
+  .post-title {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .post-title a { color: var(--color-white); text-decoration: none; }
+  .post-title a:hover { color: var(--color-spark); }
+  .post-desc {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--color-muted);
+    margin-bottom: 16px;
+    max-width: 600px;
+  }
+  .post-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: rgba(136,136,170,0.6);
+  }
+  .post-read {
+    color: var(--color-spark);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .coming-soon {
+    padding: 64px 0;
+    font-size: 18px;
+    color: var(--color-muted);
+    font-style: italic;
+  }
+</style>

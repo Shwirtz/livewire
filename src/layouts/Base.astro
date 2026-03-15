@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  pillar?: string;
+}
+
+const {
+  title = 'LiveWire',
+  description = "What's working. What's not. No thought leadership.",
+  pillar,
+} = Astro.props;
+
+const fullTitle = title === 'LiveWire' ? 'LiveWire by SparkMode' : `${title} — LiveWire`;
+
+const navItems = [
+  { label: 'The 11pm Search', href: '/11pm-search', class: 'pillar-11pm' },
+  { label: 'They Get It Too', href: '/they-get-it-too', class: 'pillar-they' },
+  { label: 'No Commission',   href: '/no-commission',  class: 'pillar-nocom' },
+  { label: 'Set the Room',    href: '/set-the-room',   class: 'pillar-room' },
+  { label: 'Add These',       href: '/add-these',      class: 'pillar-add' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+
+  <!-- OG -->
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content="/assets/livewire-og.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="gradient-bar-top"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="header-logo">
+        <img src="/assets/livewire-header-solo.png" alt="LiveWire by SparkMode" />
+      </a>
+      <nav>
+        <ul class="header-nav">
+          {navItems.map(item => (
+            <li>
+              <a href={item.href}
+                 class={Astro.url.pathname.startsWith(item.href) ? 'active' : ''}>
+                {item.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a href="https://sparkmode.com" class="header-cta" target="_blank" rel="noopener">
+              Try SparkMode
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>LiveWire by <a href="https://sparkmode.com" target="_blank" rel="noopener">SparkMode</a>. What's working. What's not. No thought leadership.</span>
+      <span>
+        <a href="https://sparkmode.com" target="_blank" rel="noopener">sparkmode.com</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:Go@SparkMode.com">Go@SparkMode.com</a>
+      </span>
+    </div>
+  </footer>
+
+  <div class="gradient-bar-bottom"></div>
+</body>
+</html>

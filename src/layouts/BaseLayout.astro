@@ -1,0 +1,113 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'LiveWire',
+  description = "What's working. What's not. No thought leadership.",
+  ogImage = '/livewire-og.png',
+} = Astro.props;
+
+const PILLARS = [
+  { slug: '11pm-search',     label: 'The 11pm Search',  color: 'var(--pillar-11pm)'  },
+  { slug: 'they-get-it-too', label: 'They Get It Too',  color: 'var(--pillar-they)'  },
+  { slug: 'no-commission',   label: 'No Commission',    color: 'var(--pillar-nocom)' },
+  { slug: 'set-the-room',    label: 'Set the Room',     color: 'var(--pillar-room)'  },
+  { slug: 'add-these',       label: 'Add These',        color: 'var(--pillar-add)'   },
+];
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title === 'LiveWire' ? 'LiveWire by SparkMode' : `${title} — LiveWire`}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="accent-bar-top"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo-link">
+        <img src="/livewire-header-solo.png" alt="LiveWire by SparkMode" class="logo-img" />
+      </a>
+      <nav class="pillar-nav">
+        {PILLARS.map(p => (
+          <a href={`/${p.slug}`} class="pillar-link" style={`--accent: ${p.color}`}>
+            {p.label}
+          </a>
+        ))}
+      </nav>
+      <a href="https://sparkmode.com/login" class="header-cta">Try SparkMode</a>
+    </div>
+  </header>
+  <main class="main-content">
+    <slot />
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-brand">LiveWire</span>
+        <span class="footer-by">by <a href="https://sparkmode.com">SparkMode</a></span>
+        <p class="footer-tagline">What's working. What's not. No thought leadership.</p>
+      </div>
+      <div class="footer-links">
+        {PILLARS.map(p => (
+          <a href={`/${p.slug}`}>{p.label}</a>
+        ))}
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© {new Date().getFullYear()} SparkMode. All rights reserved.</span>
+      <a href="mailto:Go@SparkMode.com">Go@SparkMode.com</a>
+    </div>
+  </footer>
+  <div class="accent-bar-bottom"></div>
+</body>
+</html>
+
+<style>
+  body { background: var(--color-bg); color: var(--color-white); font-family: var(--font-body); min-height: 100vh; display: flex; flex-direction: column; }
+  .accent-bar-top { height: 4px; background: linear-gradient(to right, var(--color-indigo), var(--color-electric), var(--color-glow)); flex-shrink: 0; }
+  .accent-bar-bottom { height: 3px; background: linear-gradient(to right, var(--color-spark) 0%, #c87d10 100%); flex-shrink: 0; }
+  .site-header { height: var(--nav-height); border-bottom: 1px solid rgba(136,136,170,0.15); position: sticky; top: 0; background: rgba(13,13,20,0.95); backdrop-filter: blur(12px); z-index: 100; }
+  .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 100%; display: flex; align-items: center; gap: 40px; }
+  .logo-link { display: flex; align-items: center; flex-shrink: 0; }
+  .logo-img { height: 44px; width: auto; }
+  .pillar-nav { display: flex; gap: 6px; flex: 1; }
+  .pillar-link { font-size: 13px; font-weight: 700; color: var(--color-muted); text-decoration: none; padding: 4px 10px; border-radius: 4px; border: 1px solid transparent; transition: color 0.15s, border-color 0.15s; white-space: nowrap; }
+  .pillar-link:hover { color: var(--accent); border-color: var(--accent); }
+  .header-cta { font-size: 13px; font-weight: 700; color: var(--color-bg); background: var(--color-spark); padding: 8px 16px; border-radius: 6px; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: opacity 0.15s; }
+  .header-cta:hover { opacity: 0.85; }
+  .main-content { flex: 1; max-width: var(--max-width); margin: 0 auto; padding: 60px 24px; width: 100%; }
+  .site-footer { border-top: 1px solid rgba(136,136,170,0.15); padding: 48px 32px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 64px; margin-bottom: 40px; }
+  .footer-brand { font-family: var(--font-display); font-size: 22px; color: var(--color-spark); letter-spacing: 0.08em; display: block; margin-bottom: 4px; }
+  .footer-by { font-size: 13px; color: var(--color-muted); display: block; margin-bottom: 12px; }
+  .footer-by a { color: var(--color-muted); text-decoration: none; }
+  .footer-by a:hover { color: var(--color-white); }
+  .footer-tagline { font-size: 13px; color: var(--color-muted); font-style: italic; max-width: 260px; line-height: 1.5; }
+  .footer-links { display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 14px; color: var(--color-muted); text-decoration: none; transition: color 0.15s; }
+  .footer-links a:hover { color: var(--color-white); }
+  .footer-legal { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; font-size: 12px; color: rgba(136,136,170,0.5); }
+  .footer-legal a { color: inherit; text-decoration: none; }
+  .footer-legal a:hover { color: var(--color-muted); }
+  @media (max-width: 768px) { .pillar-nav { display: none; } .header-inner { gap: 16px; } .footer-inner { flex-direction: column; gap: 32px; } .footer-legal { flex-direction: column; gap: 8px; } }
+</style>

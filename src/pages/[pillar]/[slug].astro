@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const PILLARS = ['11pm-search','they-get-it-too','no-commission','set-the-room','add-these'];
+  const allPosts = (await Promise.all(PILLARS.map(p => getCollection(p as any)))).flat();
+  return allPosts.map(post => ({
+    params: { pillar: post.collection, slug: post.slug },
+    props: { post },
+  }));
+}
+
+const PILLAR_META: Record<string, { label: string; color: string }> = {
+  '11pm-search':     { label: 'The 11pm Search',  color: '#7B2FFF' },
+  'they-get-it-too': { label: 'They Get It Too',  color: '#00D2FF' },
+  'no-commission':   { label: 'No Commission',    color: '#F5A623' },
+  'set-the-room':    { label: 'Set the Room',     color: '#00A896' },
+  'add-these':       { label: 'Add These',        color: '#4F3FFF' },
+};
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const meta = PILLAR_META[post.data.pillar];
+---
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <article class="article" style={`--accent: ${meta.color}`}>
+
+    <header class="article-header">
+      <a href={`/${post.data.pillar}`} class="pillar-tag">{meta.label}</a>
+      <h1 class="article-title">{post.data.title}</h1>
+      <p class="article-desc">{post.data.description}</p>
+      <time class="article-date" datetime={post.data.date.toISOString()}>
+        {post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+      </time>
+    </header>
+
+    <div class="article-body">
+      <Content />
+    </div>
+
+    <footer class="try-this-tonight">
+      <div class="ttt-label">Try This Tonight</div>
+      <p class="ttt-text">{post.data.tryThisTonightPrompt}</p>
+    </footer>
+
+    <nav class="article-nav">
+      <a href={`/${post.data.pillar}`} class="back-pillar">← More {meta.label}</a>
+      <a href="/" class="back-home">All of LiveWire</a>
+    </nav>
+
+  </article>
+</BaseLayout>
+
+<style>
+  .article { max-width: 680px; }
+
+  .article-header { margin-bottom: 48px; }
+  .pillar-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.08;
+    color: var(--color-white);
+    margin-bottom: 16px;
+  }
+  .article-desc {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--color-muted);
+    margin-bottom: 16px;
+    max-width: 560px;
+  }
+  .article-date { font-size: 13px; color: rgba(136,136,170,0.5); }
+
+  /* Body prose */
+  .article-body {
+    font-size: 18px;
+    line-height: 1.75;
+    color: #CCCCE0;
+    margin-bottom: 64px;
+  }
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-white);
+    margin: 48px 0 16px;
+  }
+  .article-body p { margin-bottom: 24px; }
+  .article-body a { color: var(--accent); }
+  .article-body blockquote {
+    border-left: 3px solid var(--accent);
+    padding-left: 20px;
+    margin: 32px 0;
+    color: var(--color-muted);
+    font-style: italic;
+  }
+
+  /* Try This Tonight footer */
+  .try-this-tonight {
+    background: rgba(245, 166, 35, 0.06);
+    border: 1px solid rgba(245, 166, 35, 0.25);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 48px;
+  }
+  .ttt-label {
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-spark);
+    margin-bottom: 12px;
+  }
+  .ttt-text {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--color-white);
+  }
+
+  /* Article nav */
+  .article-nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(136,136,170,0.15);
+  }
+  .back-pillar { color: var(--accent); text-decoration: none; font-weight: 700; }
+  .back-home { color: var(--color-muted); text-decoration: none; }
+  .back-home:hover { color: var(--color-white); }
+</style>

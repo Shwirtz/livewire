@@ -1,0 +1,266 @@
+/* ── LiveWire Global Styles ───────────────────────────────────────────── */
+
+/* Brand CSS Variables */
+:root {
+  --color-bg:        #0D0D14;
+  --color-bg-warm:   #0F0D10;
+  --color-indigo:    #4F3FFF;
+  --color-electric:  #7B2FFF;
+  --color-spark:     #F5A623;
+  --color-glow:      #00D2FF;
+  --color-teal:      #00A896;
+  --color-white:     #FAFAF7;
+  --color-muted:     #8888AA;
+  --color-surface:   #16161F;
+  --color-border:    #2A2A3A;
+
+  /* Pillar colors */
+  --pillar-11pm:     #7B2FFF;
+  --pillar-they:     #00D2FF;
+  --pillar-nocom:    #F5A623;
+  --pillar-room:     #00A896;
+  --pillar-add:      #4F3FFF;
+
+  /* Typography */
+  --font-display:    'Big Shoulders Display', sans-serif;
+  --font-body:       'Outfit', sans-serif;
+
+  /* Spacing */
+  --max-width:       1120px;
+  --header-height:   72px;
+}
+
+/* ── Reset ───────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  background: var(--color-bg);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+body { background: var(--color-bg); }
+
+a { color: var(--color-spark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; display: block; }
+
+/* ── Layout Utilities ────────────────────────────────────────────────── */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Top gradient bar ────────────────────────────────────────────────── */
+.gradient-bar-top {
+  height: 5px;
+  background: linear-gradient(to right, var(--color-indigo), var(--color-electric), var(--color-glow));
+  width: 100%;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────── */
+.site-header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-logo img { height: 44px; width: auto; }
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.header-nav a {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.header-nav a:hover,
+.header-nav a.active { color: var(--color-white); text-decoration: none; }
+
+.header-cta {
+  background: var(--color-spark);
+  color: #0D0D14 !important;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+}
+.header-cta:hover { opacity: 0.85; text-decoration: none !important; }
+
+/* ── Pillar Tags ─────────────────────────────────────────────────────── */
+.pillar-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+}
+.pillar-11pm    { background: var(--pillar-11pm);  color: #fff; }
+.pillar-they    { background: var(--pillar-they);  color: #0D0D14; }
+.pillar-nocom   { background: var(--pillar-nocom); color: #0D0D14; }
+.pillar-room    { background: var(--pillar-room);  color: #fff; }
+.pillar-add     { background: var(--pillar-add);   color: #fff; }
+
+/* ── Post Cards ──────────────────────────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.post-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.post-card:hover {
+  border-color: var(--color-spark);
+  transform: translateY(-2px);
+}
+
+.post-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  color: var(--color-white);
+}
+
+.post-card p {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.post-card .read-more {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-spark);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────── */
+.hero {
+  padding: 80px 0 60px;
+  border-bottom: 1px solid var(--color-border);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-spark);
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+.hero .tagline {
+  font-size: 1.05rem;
+  color: var(--color-muted);
+  font-style: italic;
+  max-width: 520px;
+}
+
+/* ── Section headings ────────────────────────────────────────────────── */
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 60px 0 0;
+}
+.section-heading h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+/* ── Try This Tonight footer block ───────────────────────────────────── */
+.try-tonight {
+  margin-top: 64px;
+  padding: 32px;
+  border-left: 4px solid var(--color-spark);
+  background: var(--color-surface);
+  border-radius: 0 10px 10px 0;
+}
+.try-tonight .label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-spark);
+  margin-bottom: 10px;
+}
+.try-tonight p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-white);
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────── */
+.site-footer {
+  margin-top: 100px;
+  padding: 40px 0;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+.site-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.site-footer a { color: var(--color-muted); }
+.site-footer a:hover { color: var(--color-spark); }
+
+/* ── Bottom amber bar ────────────────────────────────────────────────── */
+.gradient-bar-bottom {
+  height: 4px;
+  background: linear-gradient(to right, transparent, var(--color-spark));
+  width: 100%;
+}
