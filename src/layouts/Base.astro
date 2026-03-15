@@ -44,6 +44,62 @@ const navItems = [
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 
   <!-- Google Fonts -->
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DYX550SGKS"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DYX550SGKS', {
+      page_location: window.location.href,
+      page_title: document.title
+    });
+
+    // ── LiveWire custom events ─────────────────────────────────────────────
+
+    // 1. Pillar view — which content pillar is being read
+    const pillarMatch = window.location.pathname.match(
+      /^\/(11pm-search|they-get-it-too|no-commission|set-the-room|add-these)/
+    );
+    if (pillarMatch) {
+      gtag('event', 'pillar_view', {
+        pillar_name: pillarMatch[1],
+        is_article: window.location.pathname.split('/').length > 3
+      });
+    }
+
+    // 2. Article read — fires when user scrolls past 75% of the page
+    if (window.location.pathname.split('/').length > 3) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            gtag('event', 'article_read', {
+              article_url: window.location.pathname,
+              pillar: pillarMatch ? pillarMatch[1] : 'unknown'
+            });
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
+      window.addEventListener('load', () => {
+        const footer = document.querySelector('.try-this-tonight');
+        if (footer) observer.observe(footer);
+      });
+    }
+
+    // 3. SparkMode CTA click — tracks every "Try SparkMode" click
+    window.addEventListener('load', () => {
+      document.querySelectorAll('a.header-cta').forEach(el => {
+        el.addEventListener('click', () => {
+          gtag('event', 'sparkmode_cta_click', {
+            location: 'header',
+            source_pillar: pillarMatch ? pillarMatch[1] : 'homepage'
+          });
+        });
+      });
+    });
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
