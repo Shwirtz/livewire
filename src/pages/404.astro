@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Page Not Found" description="This page doesn't exist — but LiveWire does.">
+  <div class="error-page">
+    <div class="error-code">404</div>
+    <h1 class="error-title">This page doesn't exist.</h1>
+    <p class="error-sub">The link might be wrong, the post might have moved, or this just isn't a thing yet.</p>
+    <div class="error-links">
+      <a href="/" class="error-home">Back to LiveWire</a>
+      <a href="/11pm-search" class="error-pillar">The 11pm Search</a>
+      <a href="/they-get-it-too" class="error-pillar">They Get It Too</a>
+      <a href="/no-commission" class="error-pillar">No Commission</a>
+      <a href="/set-the-room" class="error-pillar">Set the Room</a>
+      <a href="/add-these" class="error-pillar">Add These</a>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .error-page {
+    padding: 80px 0;
+    max-width: 520px;
+  }
+  .error-code {
+    font-family: var(--font-display);
+    font-size: 120px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: var(--color-spark);
+    opacity: 0.25;
+    margin-bottom: 8px;
+  }
+  .error-title {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--color-white);
+    margin-bottom: 16px;
+  }
+  .error-sub {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--color-muted);
+    margin-bottom: 48px;
+  }
+  .error-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .error-home {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-bg);
+    background: var(--color-spark);
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .error-home:hover { opacity: 0.85; }
+  .error-pillar {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-muted);
+    border: 1px solid rgba(136,136,170,0.25);
+    padding: 9px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .error-pillar:hover {
+    color: var(--color-white);
+    border-color: rgba(136,136,170,0.5);
+  }
+</style>
