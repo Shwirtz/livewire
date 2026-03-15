@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="About LiveWire" description="What LiveWire is, who it's for, and why we don't have a signature method.">
+  <article class="about-page">
+    <h1 class="about-title">About LiveWire</h1>
+    <p class="about-lead">LiveWire is the editorial publication of SparkMode. It exists for one kind of reader: the parent who has already tried the obvious stuff.</p>
+    <p>They have read the books. They sat through the school meeting. They downloaded three apps. They are not looking for hope. They are looking for one specific thing that might work tonight.</p>
+    <p>We are not a wellness blog. We are not a parenting advice column. And we are definitely not another person on the internet who figured out their kid and now wants to tell you how. No frameworks. No signature methods. No book coming out in spring.</p>
+    <p>We are the parent in the group chat who did the research so you do not have to, who bought the thing and will tell you honestly if it was worth it, who found the YouTube clip where the celebrity said exactly what your kid does and it finally made you feel less alone.</p>
+    <h2>What we publish</h2>
+    <p><strong>The 11pm Search</strong> — Researched answers to what parents actually Google at night. Specific, cited, no filler. Every post ends with one zero-prep thing to try tonight.</p>
+    <p><strong>They Get It Too</strong> — How well-known people describe learning differently, in their own words. No clinical labels. Just the clips and the context.</p>
+    <p><strong>No Commission</strong> — Product recommendations with zero affiliate codes. We make $0.00 from any link on this site. The disclaimer is the whole point.</p>
+    <p><strong>Set the Room</strong> — Playlists and ambient audio mapped to specific parenting moments. Not "focus music." The actual moment before the homework fight.</p>
+    <p><strong>Add These</strong> — Five people worth your feed this week. Educators, researchers, creators. Short, opinionated, no fluff.</p>
+    <h2>Who makes this</h2>
+    <p>LiveWire is published by the SparkMode team. SparkMode builds personalized stories around whatever a child is obsessed with — Minecraft, the NBA, Taylor Swift, anime — to make reading and learning feel like the thing they actually want to do. <a href="https://sparkmode.com">Learn more at sparkmode.com.</a></p>
+    <h2>Contact</h2>
+    <p>Reach us at <a href="mailto:Go@SparkMode.com">Go@SparkMode.com</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .about-page { max-width: 640px; }
+  .about-title { font-family: var(--font-display); font-size: clamp(32px, 5vw, 52px); font-weight: 700; letter-spacing: 0.04em; color: var(--color-spark); margin-bottom: 24px; }
+  .about-lead { font-size: 20px; line-height: 1.65; color: var(--color-white); margin-bottom: 24px; font-weight: 700; }
+  .about-page p { font-size: 17px; line-height: 1.75; color: #CCCCE0; margin-bottom: 20px; }
+  .about-page h2 { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: 0.06em; color: var(--color-white); margin: 48px 0 16px; }
+  .about-page a { color: var(--color-spark); }
+  .about-page strong { color: var(--color-white); }
+</style>

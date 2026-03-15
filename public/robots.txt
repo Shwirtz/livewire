@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Welcome to LiveWire by SparkMode
+# livewire.sparkmode.com
+
+Sitemap: https://livewire.sparkmode.com/sitemap-index.xml

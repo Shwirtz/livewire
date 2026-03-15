@@ -44,6 +44,25 @@ const navItems = [
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 
   <!-- Google Fonts -->
+  <!-- Structured data -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "LiveWire",
+    "description": "What's working. What's not. No thought leadership.",
+    "url": "https://livewire.sparkmode.com",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SparkMode",
+      "url": "https://sparkmode.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://livewire.sparkmode.com/livewire-og.png"
+      }
+    },
+    "inLanguage": "en-US"
+  })} />
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DYX550SGKS"></script>
   <script is:inline>
@@ -122,6 +141,12 @@ const navItems = [
               </a>
             </li>
           ))}
+          <li>
+            <a href="/about"
+               class={Astro.url.pathname === '/about' ? 'active' : ''}>
+              About
+            </a>
+          </li>
           <li>
             <a href="https://sparkmode.com" class="header-cta" target="_blank" rel="noopener">
               Try SparkMode

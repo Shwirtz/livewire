@@ -22,8 +22,26 @@ const PILLAR_META: Record<string, { label: string; color: string }> = {
 const { post } = Astro.props;
 const { Content } = await post.render();
 const meta = PILLAR_META[post.data.pillar];
+const canonicalURL = `https://livewire.sparkmode.com/${post.data.pillar}/${post.slug}`;
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "datePublished": post.data.date.toISOString(),
+  "url": canonicalURL,
+  "publisher": {
+    "@type": "Organization",
+    "name": "SparkMode",
+    "url": "https://sparkmode.com"
+  },
+  "mainEntityOfPage": canonicalURL,
+};
+
 ---
 <BaseLayout title={post.data.title} description={post.data.description}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+  <link rel="canonical" href={canonicalURL} slot="head" />
   <article class="article" style={`--accent: ${meta.color}`}>
 
     <header class="article-header">

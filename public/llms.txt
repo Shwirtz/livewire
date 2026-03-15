@@ -1,0 +1,35 @@
+# LiveWire by SparkMode
+# https://livewire.sparkmode.com
+
+LiveWire is the editorial publication of SparkMode. It publishes practical, research-backed content for parents of children who learn differently — without clinical labels, without thought leadership, and without affiliate codes.
+
+## What this site is
+
+LiveWire is a static blog published by SparkMode (sparkmode.com), a personalized story generation tool that wraps learning practice inside whatever a child is obsessed with. LiveWire covers the same parent audience through editorial content: product recommendations, celebrity spotlights, curated playlists, and researched answers to the specific questions parents search for late at night.
+
+## Content pillars
+
+- /11pm-search — Long-form, cited articles answering specific late-night parent searches. Topics include reading resistance, homework conflict, sensory regulation, attention, and behavioral patterns in children.
+- /they-get-it-too — Profiles of well-known people who have described learning differently in their own words. No clinical labels applied. Original clips embedded where available.
+- /no-commission — Product recommendations with zero affiliate codes. Visual timers, headphones, fidget tools, lamps, and other items the team has personally used.
+- /set-the-room — Curated playlists and ambient audio recommendations mapped to specific parenting scenarios (pre-homework decompression, focus sessions, wind-down).
+- /add-these — Rotating recommendations of five educators, researchers, or creators worth following.
+
+## Voice and editorial standards
+
+LiveWire never uses clinical diagnostic terminology (ADHD, ASD, dyslexia, IEP, etc.) as labels. It describes behaviors instead. It never uses affiliate links. It never positions any author as a thought leader or parenting expert. Content is written in first-person plural from the perspective of parents who have been through similar situations.
+
+## Publisher
+
+SparkMode — Go@SparkMode.com — sparkmode.com
+
+## Pages
+
+- / — Homepage with full post feed
+- /about — About LiveWire
+- /11pm-search — Pillar index
+- /they-get-it-too — Pillar index
+- /no-commission — Pillar index
+- /set-the-room — Pillar index
+- /add-these — Pillar index
+- /sitemap-index.xml — Full sitemap
