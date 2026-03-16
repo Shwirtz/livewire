@@ -59,7 +59,7 @@ const PILLAR_META: Record<string, { label: string; color: string; day: string }>
           </a>
         );
       })}
-      {hasMore && <a href="/archive" class="see-all">See all posts →</a>}
+      {hasMore && <a href="/" class="see-all">See all posts →</a>}
     </section>
   ) : (
     <p class="coming-soon">First posts dropping soon. Check back Monday.</p>
@@ -87,7 +87,7 @@ const PILLAR_META: Record<string, { label: string; color: string; day: string }>
   }
   .pillar-card:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
   .pillar-name { font-size: 13px; font-weight: 700; color: var(--accent); }
-  .pillar-day { font-size: 11px; color: var(--color-muted); }
+  .pillar-day { font-size: 12px; color: var(--color-muted); }
 
   /* Feed */
   .feed-label {
