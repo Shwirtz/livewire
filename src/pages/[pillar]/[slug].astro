@@ -53,10 +53,11 @@ const articleSchema: Record<string, unknown> = {
   "url": canonicalURL,
   "image": `https://livewire.sparkmode.com/og/${post.slug}.png`,
   "keywords": (post.data.keywords ?? []).join(', '),
-  "author": { "@type": "Organization", "name": "SparkMode Team", "url": "https://sparkmode.com" },
+  "author": { "@type": "Person", "name": "LiveWire Editorial", "url": "https://livewire.sparkmode.com/about" },
   "publisher": { "@type": "Organization", "name": "SparkMode", "url": "https://sparkmode.com",
     "logo": { "@type": "ImageObject", "url": "https://livewire.sparkmode.com/livewire-wordmark-solo.png" }
   },
+  "isPartOf": { "@type": "Blog", "name": "They Get It Too", "url": `https://livewire.sparkmode.com/${post.data.pillar}` },
   "mainEntityOfPage": canonicalURL,
 };
 if (post.data.mentions && post.data.mentions.length > 0) {
@@ -105,7 +106,7 @@ const breadcrumbSchema = {
         <time datetime={(post.data.publishedDate ?? post.data.updatedDate).toISOString()}>
           {(post.data.publishedDate ?? post.data.updatedDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
         </time>
-        <span>by {post.data.author}</span>
+        <span>by LiveWire Editorial</span>
         <span>{readingMins} min read</span>
       </div>
     </header>
@@ -118,6 +119,8 @@ const breadcrumbSchema = {
       <p class="ttt-label">Try This Tonight</p>
       <p class="ttt-text">{post.data.tryThisTonightPrompt}</p>
     </footer>
+
+    <p class="editorial-blurb">LiveWire is written for parents in the trenches — by people who know what 11pm searching feels like. Every post is reported, sourced, and written to be actually useful.</p>
 
     <!-- Social sharing -->
     <div class="share-bar">
@@ -179,13 +182,13 @@ const breadcrumbSchema = {
   .article-byline { display: flex; gap: 16px; font-size: 13px; color: rgba(136,136,170,0.4); flex-wrap: wrap; }
   .article-body { font-size: 17px; line-height: 1.85; color: var(--color-body); margin-bottom: 48px; }
   :global(.article-body p) { margin-bottom: 1.6em; }
-  :global(.article-body h2) { font-family: var(--font-display); font-size: 25px; font-weight: 700; letter-spacing: 0.05em; color: var(--accent); margin: 48px 0 16px; }
+  :global(.article-body h2) { font-family: var(--font-display); font-size: 30px; font-weight: 700; letter-spacing: 0.05em; color: var(--accent); margin: 48px 0 16px; }
   :global(.article-body a) { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(0,210,255,0.25); transition: border-color 0.15s; }
   :global(.article-body a:hover) { border-bottom-color: var(--accent); }
   :global(.article-body strong) { color: var(--color-white); }
   :global(.article-body em) { font-style: italic; }
   :global(.article-body hr) { border: none; border-top: 1px solid rgba(136,136,170,0.15); margin: 48px 0 32px; }
-  :global(.article-body blockquote) { border-left: 3px solid var(--accent); padding: 4px 0 4px 24px; margin: 36px 0; color: var(--color-body); font-style: italic; font-size: 18px; line-height: 1.7; }
+  :global(.article-body blockquote) { border-left: 3px solid var(--accent); padding: 4px 0 4px 24px; margin: 36px 0; color: var(--color-white); opacity: 0.88; font-style: italic; font-size: 20px; line-height: 1.65; }
   :global(.article-body blockquote footer) { margin-top: 10px; font-style: normal; font-size: 13px; color: var(--color-muted); }
   :global(.article-body blockquote footer cite) { font-style: normal; }
   :global(.article-body blockquote:has(h2)) { border-left: none; padding: 24px 28px; background: rgba(136,136,170,0.06); border-radius: 8px; margin: 40px 0; font-size: inherit; }
@@ -200,17 +203,18 @@ const breadcrumbSchema = {
   .try-this-tonight { background: var(--color-spark); border-radius: 10px; padding: 28px 32px; margin-bottom: 40px; }
   .ttt-label { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(13,13,20,0.65); margin-bottom: 10px; }
   .ttt-text { font-size: 17px; line-height: 1.7; color: var(--color-bg); font-weight: 600; }
+  .editorial-blurb { font-size: 13px; color: rgba(136,136,170,0.5); line-height: 1.6; margin-bottom: 32px; font-style: italic; }
   .share-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
   .share-label { font-size: 12px; font-weight: 700; color: var(--color-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-right: 4px; }
   .share-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; text-decoration: none; padding: 7px 14px; border-radius: 6px; border: 1px solid rgba(136,136,170,0.2); color: var(--color-muted); background: transparent; transition: color 0.15s, border-color 0.15s, background 0.15s; }
   .share-btn:hover { color: var(--color-white); border-color: rgba(136,136,170,0.4); background: rgba(136,136,170,0.06); }
   .share-fb:hover { color: #1877F2; border-color: #1877F2; }
   .share-wa:hover { color: #25D366; border-color: #25D366; }
-  .article-sources { font-size: 12px; color: rgba(136,136,170,0.4); margin-bottom: 32px; display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
-  .sources-label { font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 10px; color: rgba(136,136,170,0.35); margin-right: 2px; }
-  .sources-sep { opacity: 0.4; }
-  .article-sources a { color: rgba(136,136,170,0.45); text-decoration: none; border-bottom: 1px solid rgba(136,136,170,0.18); transition: color 0.15s; }
-  .article-sources a:hover { color: var(--color-muted); }
+  .article-sources { font-size: 13px; color: rgba(136,136,170,0.8); margin-bottom: 32px; display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+  .sources-label { font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 11px; color: rgba(136,136,170,0.7); margin-right: 2px; }
+  .sources-sep { opacity: 0.5; }
+  .article-sources a { color: rgba(136,136,170,0.8); text-decoration: none; border-bottom: 1px solid rgba(136,136,170,0.35); transition: color 0.15s; }
+  .article-sources a:hover { color: var(--color-white); }
   .article-nav { display: flex; justify-content: space-between; align-items: flex-start; padding-top: 28px; border-top: 1px solid rgba(136,136,170,0.12); gap: 24px; }
   .nav-back { color: var(--accent); text-decoration: none; font-weight: 700; font-size: 14px; white-space: nowrap; }
   .nav-back:hover { opacity: 0.8; }

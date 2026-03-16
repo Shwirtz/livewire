@@ -1,6 +1,6 @@
 ---
 title: "Henry Winkler couldn't read until he was 31. Then he wrote 36 books."
-pageTitle: "Henry Winkler's Dyslexia Story — LiveWire"
+pageTitle: "Henry Winkler's Dyslexia Story - LiveWire"
 updatedDate: 2026-03-16
 publishedDate: 2026-03-16
 pillar: they-get-it-too
@@ -36,9 +36,9 @@ embeds:
     caption: "PBS NewsHour, 2023. The table read story starts at 1:47 and it's devastating in the best way."
 ---
 
-For eleven seasons, Henry Winkler sat at the Happy Days table read — the whole cast, all the producers, the directors, everyone listening for the first time — and he could not read off the page. Every single week. He covered it with jokes. He made himself into the funniest person in the room so nobody would notice the thing he was most ashamed of.
+For eleven seasons, Henry Winkler sat at the Happy Days table read, the whole cast, all the producers, the directors, everyone listening for the first time, and he could not read off the page. Every single week. He covered it with jokes. He made himself into the funniest person in the room so nobody would notice the thing he was most ashamed of.
 
-He didn't find out he had dyslexia until he was 31. His stepson got tested, and everything they said about the kid was true about him. Dyslexia affects how the brain processes written language — it has nothing to do with intelligence, and it runs in families.
+He didn't find out he had dyslexia until he was 31. His stepson got tested, and everything they said about the kid was true about him. Dyslexia affects how the brain processes written language. It has nothing to do with intelligence, and it runs in families.
 
 <blockquote cite="https://childmind.org/blog/henry-winkler/">
 <p>"I realized I was not stupid. I had something with a name."</p>
@@ -76,8 +76,8 @@ The thing that keeps coming up when Winkler talks about this is the gap between 
 
 That gap is worth sitting with if you're raising a kid who looks similar. A kid who can't sit through homework but can spend four hours deep in a game, a sport, a YouTube rabbit hole is not a kid with a focus problem. That kid's attention works exactly like Winkler's did. Locks onto things that matter. Drifts away from things that don't. The question isn't how to make them more like the system wants. It's how to find the thing the system doesn't know how to measure yet.
 
-Dyslexia and ADHD overlap more than most people realize — kids who struggle with reading often show the same pattern of tuning out assigned work while going deep on the things they actually care about. The label the school gives them is rarely the whole picture.
+Dyslexia and ADHD overlap more than most people realize. Kids who struggle with reading often show the same pattern of tuning out assigned work while going deep on the things they actually care about. The label the school gives them is rarely the whole picture.
 
 Winkler found his at the Happy Days table read. He covered his shame with humor, and the humor turned out to be the job.
 
-He's since written over 30 books in the Hank Zipzer series — stories about a kid with dyslexia navigating school — specifically because he remembered what it felt like to be eight years old and already convinced he was stupid. Kids write to him to say: how did you know me so well?
+He's since written over 30 books in the Hank Zipzer series, stories about a kid with dyslexia navigating school, specifically because he remembered what it felt like to be eight years old and already convinced he was stupid. Kids write to him to say: how did you know me so well? He's part of a pattern you see in a lot of people who build remarkable things: the grade book had nothing good to say about them. [Barbara Corcoran](/they-get-it-too/barbara-corcoran) failed second grade. Same story, different industry.
