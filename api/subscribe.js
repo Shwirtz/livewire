@@ -3,8 +3,9 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID;
 const FROM = 'LiveWire <go@sparkmode.com>';
+const SITE = 'https://livewire.sparkmode.com';
 
-const emailHtml = `
+const emailHtml = (unsubscribeUrl) => `
 <!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>You're on the list.</title></head>
@@ -82,7 +83,7 @@ const emailHtml = `
   <tr><td style="padding:18px 40px;border-top:1px solid rgba(255,255,255,0.05);">
     <p style="font-size:12px;color:rgba(250,250,247,0.25);margin:0;line-height:1.7;">
       You signed up at livewire.sparkmode.com.&nbsp;
-      <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:rgba(250,250,247,0.35);text-decoration:underline;">Unsubscribe</a>
+      <a href="${unsubscribeUrl}" style="color:rgba(250,250,247,0.35);text-decoration:underline;">Unsubscribe</a>
     </p>
   </td></tr>
 
@@ -124,11 +125,16 @@ export default async function handler(req, res) {
     });
 
     // Send confirmation email
+    const unsubscribeUrl = `${SITE}/api/unsubscribe?email=${encodeURIComponent(email)}`;
     await resend.emails.send({
       from: FROM,
       to: email,
       subject: "You're on the list.",
-      html: emailHtml,
+      html: emailHtml(unsubscribeUrl),
+      headers: {
+        'List-Unsubscribe': `<${unsubscribeUrl}>`,
+        'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+      },
     });
 
     return res.status(200).json({ ok: true });
