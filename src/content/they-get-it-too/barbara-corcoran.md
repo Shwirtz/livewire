@@ -1,12 +1,12 @@
 ---
 title: "Barbara Corcoran failed second grade. Then she built a $66 million empire."
-updatedDate: 2026-03-17
+updatedDate: 2026-03-16
 publishedDate: 2026-03-17
 pillar: they-get-it-too
 description: "Barbara Corcoran was called the dumbest kid in her class. Here's what she says to parents whose kids feel the same way every single day."
 tryThisTonightPrompt: "Ask your kid what they're actually good at. Not 'good at' in a school way, good at in a real-life way. Make a list together. Put it somewhere they can see it."
 author: SparkMode Team
-draft: false
+draft: true
 scheduledDate: 2026-03-17
 keywords:
   - dyslexia
