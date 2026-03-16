@@ -60,7 +60,7 @@ const articleSchema: Record<string, unknown> = {
   "publisher": { "@type": "Organization", "name": "SparkMode", "url": "https://sparkmode.com",
     "logo": { "@type": "ImageObject", "url": "https://livewire.sparkmode.com/livewire-wordmark-solo.png" }
   },
-  "isPartOf": { "@type": "Blog", "name": "They Get It Too", "url": `https://livewire.sparkmode.com/${post.data.pillar}` },
+  "isPartOf": { "@type": "Blog", "name": meta.label, "url": `https://livewire.sparkmode.com/${post.data.pillar}` },
   "mainEntityOfPage": canonicalURL,
 };
 if (post.data.mentions && post.data.mentions.length > 0) {
@@ -90,7 +90,7 @@ const breadcrumbSchema = {
   publishDate={(post.data.publishedDate ?? post.data.updatedDate).toISOString()}
   modifiedDate={post.data.updatedDate.toISOString()}
   section={meta.label}
-  tags={['learning differences', 'parenting', 'dyslexia', 'ADHD']}
+  tags={post.data.keywords ?? ['learning differences', 'parenting']}
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
   <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />

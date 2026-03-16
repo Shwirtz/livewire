@@ -5,13 +5,42 @@
 
 ## Complete New Post Workflow (in order)
 
-1. Write the markdown file in `src/content/[pillar]/[slug].md` with full frontmatter
-2. Add one entry to `POSTS` in `C:\Jacob\SparkMode\LiveWire\og_image_gen.py`
-3. Run `python C:\Jacob\SparkMode\LiveWire\og_image_gen.py [slug]`
-4. **Run `python C:\Jacob\SparkMode\LiveWire\audit_post.py [pillar]/[slug]`**
-5. **Fix every FAIL before proceeding. WARN items are advisory.**
-6. `git add . && git commit -m "[slug]: new post + OG image" && git push`
-7. Vercel auto-deploys. Done.
+1. **Switch to drafts branch:** `git checkout drafts`
+2. Write the markdown file in `src/content/[pillar]/[slug].md`
+   - `draft: true` is the default — leave it
+   - Set `scheduledDate: YYYY-MM-DD` for when it should go live
+3. Add entry to `POSTS` in `og_image_gen.py`, run generator
+4. Run `python C:\Jacob\SparkMode\LiveWire\audit_post.py [pillar]/[slug]` — fix all FAILs
+5. Commit and push to `drafts`: `git add . && git commit -m "draft: [slug]" && git push`
+6. **Review on Vercel preview URL** (password protected — see Vercel dashboard)
+7. Once approved, merge to `main`: `git checkout main && git merge drafts && git push`
+8. GitHub Action publishes automatically on `scheduledDate` at 8am UTC
+9. For immediate publish: set `draft: false` manually before merging
+
+## Scheduling Frontmatter
+
+```yaml
+draft: true                # always start as draft
+scheduledDate: 2026-04-01  # GitHub Action publishes this automatically
+publishedDate: 2026-04-01  # set same as scheduledDate — never change after
+```
+
+## Preview URL (bookmark this)
+
+**`https://livewire-git-drafts-spark-mode.vercel.app`**
+
+- Always shows the latest `drafts` branch build
+- Requires Vercel login (protected)
+- Shows all draft posts with amber DRAFT banner + scheduled date
+- GA4 analytics suppressed — preview visits don't pollute data
+- Scheduled dates shown under each post headline
+
+## Known Rules and Conflicts
+
+- **Never add internal links to draft posts** — the link will 404 on the live site. Only link to posts with `draft: false`.
+- **Sitemap** — draft posts are excluded automatically (build filter removes them)
+- **RSS feed** — draft posts excluded via `!p.data.draft` filter in feed.xml.ts
+- **GA4** — fires only on `livewire.sparkmode.com`, suppressed on all preview/staging URLs
 
 ## Audit Script
 
