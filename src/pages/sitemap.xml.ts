@@ -10,7 +10,7 @@ export async function GET(_ctx: APIContext) {
   ).flat().filter((p: any) => !p.data.draft);
 
   const staticPages = [
-    { url: SITE, priority: '1.0', changefreq: 'daily' },
+    { url: SITE, priority: '1.0', changefreq: 'weekly' },
     { url: `${SITE}/11pm-search`, priority: '0.8', changefreq: 'weekly' },
     { url: `${SITE}/they-get-it-too`, priority: '0.8', changefreq: 'weekly' },
     { url: `${SITE}/no-commission`, priority: '0.8', changefreq: 'weekly' },
@@ -28,14 +28,14 @@ export async function GET(_ctx: APIContext) {
 
   const allPages = [...staticPages, ...postPages];
 
+  const toEntry = (p: any) => {
+    const lastmod = 'lastmod' in p ? `\n    <lastmod>${p.lastmod}</lastmod>` : '';
+    return `  <url>\n    <loc>${p.url}</loc>${lastmod}\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>`;
+  };
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${allPages.map(p => `  <url>
-    <loc>${p.url}</loc>
-    ${('lastmod' in p) ? `<lastmod>${p.lastmod}</lastmod>` : ''}
-    <changefreq>${p.changefreq}</changefreq>
-    <priority>${p.priority}</priority>
-  </url>`).join('\n')}
+${allPages.map(toEntry).join('\n')}
 </urlset>`;
 
   return new Response(xml, {

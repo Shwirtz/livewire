@@ -40,7 +40,7 @@ jobs:
             # Keep drafts branch in sync so future merges don't revert published posts
             git fetch origin drafts
             git checkout drafts
-            git merge main --no-edit -m "Sync: pull published post state from main [skip ci]"
+            git merge main -m "Sync: pull published post state from main [skip ci]"
             git push origin drafts
             git checkout main
           else
