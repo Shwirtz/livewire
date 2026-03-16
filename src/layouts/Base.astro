@@ -4,8 +4,9 @@ import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title?: string;
-  pageTitle?: string;   // optional shorter title for <title> tag (SERP); falls back to title
+  pageTitle?: string;
   description?: string;
+  ogImage?: string;  // per-article image path e.g. '/og/henry-winkler.png'
   // Article-specific meta — only passed from [slug].astro
   isArticle?: boolean;
   canonicalURL?: string;
@@ -18,6 +19,7 @@ interface Props {
 const {
   title = 'LiveWire',
   pageTitle,
+  ogImage,
   description = "What's working. What's not. No thought leadership.",
   isArticle = false,
   canonicalURL,
@@ -32,7 +34,7 @@ const serpTitle = pageTitle
   ? (pageTitle.includes('LiveWire') ? pageTitle : `${pageTitle} — LiveWire`)
   : (title === 'LiveWire' ? 'LiveWire by SparkMode' : `${title} — LiveWire`);
 const fullTitle = title === 'LiveWire' ? 'LiveWire by SparkMode' : `${title} — LiveWire`;
-const ogImage = `${SITE}/livewire-og.png`;
+const ogImageURL = ogImage ? `${SITE}${ogImage}` : `${SITE}/livewire-og.png`;
 const ogURL = canonicalURL ?? `${SITE}${Astro.url.pathname}`;
 
 const navItems = [
@@ -61,7 +63,7 @@ const navItems = [
   <meta property="og:type" content={isArticle ? 'article' : 'website'} />
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImage} />
+  <meta property="og:image" content={ogImageURL} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:url" content={ogURL} />
@@ -76,7 +78,7 @@ const navItems = [
   <meta name="twitter:creator" content="@GoSparkMode" />
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image" content={ogImageURL} />
   <meta name="twitter:image:alt" content={isArticle ? description : "LiveWire by SparkMode — What's working. What's not. No thought leadership."} />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />

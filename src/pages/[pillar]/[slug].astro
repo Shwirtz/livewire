@@ -51,7 +51,7 @@ const articleSchema: Record<string, unknown> = {
   "datePublished": (post.data.publishedDate ?? post.data.updatedDate).toISOString(),
   "dateModified": post.data.updatedDate.toISOString(),
   "url": canonicalURL,
-  "image": "https://livewire.sparkmode.com/livewire-og.png",
+  "image": `https://livewire.sparkmode.com/og/${post.slug}.png`,
   "keywords": (post.data.keywords ?? []).join(', '),
   "author": { "@type": "Organization", "name": "SparkMode Team", "url": "https://sparkmode.com" },
   "publisher": { "@type": "Organization", "name": "SparkMode", "url": "https://sparkmode.com",
@@ -79,6 +79,7 @@ const breadcrumbSchema = {
 <BaseLayout
   title={post.data.title}
   pageTitle={post.data.pageTitle}
+  ogImage={`/og/${post.slug}.png`}
   description={post.data.description}
   isArticle={true}
   canonicalURL={canonicalURL}
