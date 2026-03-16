@@ -91,6 +91,10 @@ const navItems = [
   })} />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DYX550SGKS"></script>
   <script is:inline>
+    // Suppress analytics on preview/draft builds
+    if (window.location.hostname !== 'livewire.sparkmode.com') {
+      window.dataLayer = []; function gtag(){} // no-op
+    } else {
     window.dataLayer=window.dataLayer||[];
     function gtag(){dataLayer.push(arguments);}
     gtag('js',new Date());
@@ -102,6 +106,7 @@ const navItems = [
       window.addEventListener('load',()=>{const f=document.querySelector('.try-this-tonight');if(f)obs.observe(f);});
     }
     window.addEventListener('load',()=>{document.querySelectorAll('a.header-cta').forEach(el=>{el.addEventListener('click',()=>{gtag('event','sparkmode_cta_click',{location:'header',source_pillar:pillarMatch?pillarMatch[1]:'homepage'});});});});
+    }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
