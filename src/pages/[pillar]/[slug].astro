@@ -37,7 +37,7 @@ const nextPost = allInPillar[currentIndex + 1] ?? null;
 
 // Social share URLs — native, no third-party scripts
 const encoded = encodeURIComponent(canonicalURL);
-const encodedText = encodeURIComponent(`${post.data.title} — from LiveWire by SparkMode`);
+const encodedText = encodeURIComponent(`${post.data.title} from @GoSparkMode`);
 const xShareURL = `https://x.com/intent/tweet?text=${encodedText}&url=${encoded}&via=GoSparkMode`;
 const fbShareURL = `https://www.facebook.com/sharer/sharer.php?u=${encoded}`;
 const whatsappURL = `https://wa.me/?text=${encodedText}%20${encoded}`;
@@ -129,6 +129,18 @@ const breadcrumbSchema = {
       </a>
     </div>
 
+    {post.data.sources && post.data.sources.length > 0 && (
+      <div class="article-sources">
+        <span class="sources-label">Sources</span>
+        {post.data.sources.map((s, i) => (
+          <>
+            {i > 0 && <span class="sources-sep"> / </span>}
+            <a href={s.url} target="_blank" rel="noopener">{s.label}</a>
+          </>
+        ))}
+      </div>
+    )}
+
     <nav class="article-nav">
       <a href={`/${post.data.pillar}`} class="nav-back">← {meta.label}</a>
       {nextPost ? (
@@ -161,9 +173,7 @@ const breadcrumbSchema = {
   :global(.article-body a:hover) { border-bottom-color: var(--accent); }
   :global(.article-body strong) { color: var(--color-white); }
   :global(.article-body em) { font-style: italic; }
-  :global(.article-body hr) { border: none; border-top: 1px solid rgba(136,136,170,0.15); margin: 56px 0 32px; }
-  :global(.article-body hr + p) { font-size: 13px; color: rgba(136,136,170,0.4); font-style: normal; margin-bottom: 0; }
-  :global(.article-body hr + p a) { color: rgba(136,136,170,0.5); border-bottom: 1px solid rgba(136,136,170,0.2); }
+  :global(.article-body hr) { border: none; border-top: 1px solid rgba(136,136,170,0.15); margin: 48px 0 32px; }
   :global(.article-body blockquote) { border-left: 3px solid var(--accent); padding-left: 20px; margin: 32px 0; color: var(--color-muted); font-style: italic; }
   :global(.article-body blockquote:has(h2)) { border-left: none; padding: 24px 28px; background: rgba(136,136,170,0.06); border-radius: 8px; margin: 40px 0; }
   :global(.article-body blockquote h2) { font-family: var(--font-display); font-size: clamp(22px,3vw,30px); font-weight: 700; color: var(--color-white); margin: 0; }
@@ -179,6 +189,19 @@ const breadcrumbSchema = {
   .share-btn:hover { color: var(--color-white); border-color: rgba(136,136,170,0.4); background: rgba(136,136,170,0.06); }
   .share-fb:hover { color: #1877F2; border-color: #1877F2; }
   .share-wa:hover { color: #25D366; border-color: #25D366; }
+  /* Sources */
+  .article-sources { font-size: 13px; color: rgba(136,136,170,0.45); margin-bottom: 32px; }
+  .sources-label { font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 11px; margin-right: 8px; }
+  .sources-sep { margin: 0 4px; opacity: 0.4; }
+  .article-sources a { color: rgba(136,136,170,0.55); text-decoration: none; border-bottom: 1px solid rgba(136,136,170,0.2); transition: color 0.15s; }
+  .article-sources a:hover { color: var(--color-muted); }
+
+  .article-sources { font-size: 12px; color: rgba(136,136,170,0.4); margin-bottom: 32px; display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+  .sources-label { font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 10px; color: rgba(136,136,170,0.35); margin-right: 2px; }
+  .sources-sep { opacity: 0.4; }
+  .article-sources a { color: rgba(136,136,170,0.45); text-decoration: none; border-bottom: 1px solid rgba(136,136,170,0.18); transition: color 0.15s; }
+  .article-sources a:hover { color: var(--color-muted); }
+
   .article-nav { display: flex; justify-content: space-between; align-items: flex-start; padding-top: 28px; border-top: 1px solid rgba(136,136,170,0.12); gap: 24px; }
   .nav-back { color: var(--accent); text-decoration: none; font-weight: 700; font-size: 14px; white-space: nowrap; }
   .nav-back:hover { opacity: 0.8; }

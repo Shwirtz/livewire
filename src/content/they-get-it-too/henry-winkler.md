@@ -49,7 +49,3 @@ That gap is worth sitting with if you're raising a kid who looks similar. A kid 
 Winkler found his at the Happy Days table read. He covered his shame with humor, and the humor turned out to be the job.
 
 He's since written over 30 books in the Hank Zipzer series — stories about a kid with dyslexia navigating school — specifically because he remembered what it felt like to be eight years old and already convinced he was stupid. Kids write to him to say: how did you know me so well?
-
----
-
-*Sources: [PBS NewsHour, November 2023](https://www.pbs.org/newshour/show/henry-winkler-reflects-on-life-with-dyslexia-and-his-journey-of-self-discovery) — [Child Mind Institute, #MyYoungerSelf](https://childmind.org/blog/henry-winkler/)*

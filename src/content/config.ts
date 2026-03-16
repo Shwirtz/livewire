@@ -16,6 +16,7 @@ const postSchema = z.object({
   tryThisTonightPrompt: z.string(),
   author: z.string().default('SparkMode Team'),
   draft: z.boolean().default(false),
+  sources: z.array(z.object({ label: z.string(), url: z.string() })).optional(),
   embeds: z.array(embedSchema).optional(),   // ordered list of embeds for the post
 });
 
