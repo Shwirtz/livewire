@@ -1,7 +1,31 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About LiveWire",
+  "url": "https://livewire.sparkmode.com/about",
+  "description": "What LiveWire is, who it's for, and why we don't have a signature method.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "SparkMode",
+    "url": "https://sparkmode.com",
+    "sameAs": [
+      "https://x.com/GoSparkMode",
+      "https://instagram.com/GoSparkMode",
+      "https://tiktok.com/@GoSparkMode"
+    ]
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "LiveWire",
+    "url": "https://livewire.sparkmode.com"
+  }
+};
 ---
-<Base title="About LiveWire" description="What LiveWire is, who it's for, and why we don't have a signature method.">
+<Base title="About LiveWire" description="What LiveWire is, who it's for, and why we don't have a signature method." canonicalURL="https://livewire.sparkmode.com/about">
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(aboutSchema)} />
   <article class="about-page">
     <h1 class="about-title">About LiveWire</h1>
     <p class="about-lead">LiveWire is the editorial publication of SparkMode. It exists for one kind of reader: the parent who has already tried the obvious stuff.</p>
