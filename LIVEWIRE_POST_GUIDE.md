@@ -111,10 +111,32 @@ These fire automatically on every post — no action needed:
 
 ---
 
+## OG Image Generator
+
+Script: `C:\Jacob\SparkMode\LiveWire\og_image_gen.py`
+Output: `livewire-site/public/og/[slug].png` (committed to repo, served as static asset)
+
+**For each new post, add an entry to POSTS in og_image_gen.py:**
+```python
+{"slug": "rick-riordan", "pillar": "they-get-it-too",
+ "title": "Rick Riordan wrote Percy Jackson because his son couldn't find himself in books."},
+```
+
+**Then run:**
+```
+python C:\Jacob\SparkMode\LiveWire\og_image_gen.py [slug]
+```
+
+The generated PNG is automatically picked up by the site — no frontmatter changes needed.
+The `[slug].astro` template passes `/og/[slug].png` to Base.astro for all OG and Twitter meta tags.
+
+**Key technical note:** PIL fill tuples must be solid RGB — never include alpha (e.g. `fill=(0,45,65)` not `fill=(0,45,65,30)`). Alpha values silently fail on RGB-mode images.
+
+---
+
 ## Outstanding (as of 2026-03-16)
 
-- [ ] Per-article OG image generator (Python/PIL) — highest priority, tackling separately
 - [ ] Mobile share bar at 375px — needs visual check
-- [ ] Submit sitemap to Google Search Console — one manual action
-- [ ] `loading="eager" fetchpriority="high"` on LCP image — wire into template when OG images are live
-- [ ] `pageTitle` for stub posts — low stakes until posts are real
+- [ ] Submit sitemap to Google Search Console — on launch day
+- [ ] `loading="eager" fetchpriority="high"` on LCP image — wire into template when hero images added
+- [ ] OG image visual polish — pill fill could use a tighter dark tint, consider iterating design
