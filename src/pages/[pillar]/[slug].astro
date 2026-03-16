@@ -40,7 +40,8 @@ const encoded = encodeURIComponent(canonicalURL);
 const encodedText = encodeURIComponent(`${post.data.title} from @GoSparkMode`);
 const xShareURL = `https://x.com/intent/tweet?text=${encodedText}&url=${encoded}`;
 const fbShareURL = `https://www.facebook.com/sharer/sharer.php?u=${encoded}`;
-const whatsappURL = `https://wa.me/?text=${encodedText}%20${encoded}`;
+const whatsappText = encodeURIComponent(`${post.data.title} ${canonicalURL}`);
+const whatsappURL = `https://wa.me/?text=${whatsappText}`;
 const threadsURL = `https://www.threads.net/intent/post?text=${encodedText}%20${encoded}`;
 
 const articleSchema = {
