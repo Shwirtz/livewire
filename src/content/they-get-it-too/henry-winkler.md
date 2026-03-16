@@ -2,7 +2,7 @@
 title: "Henry Winkler couldn't read until he was 31. Then he wrote 36 books."
 date: 2026-03-16
 pillar: they-get-it-too
-description: "Here's what he'd tell the kid your kid reminds you of."
+description: "Henry Winkler hid his dyslexia for 31 years. Here's what he says to parents of kids the school system has already started to label."
 tryThisTonightPrompt: "Find one thing your kid already reads obsessively. A game wiki, a YouTube comment section, a team roster. Say this out loud to them: that counts. That is reading. You are a reader."
 author: SparkMode Team
 draft: false
@@ -27,6 +27,8 @@ The first emotion wasn't relief. It was anger. All that humiliation, all those y
 <p class="embed-caption">Henry Winkler, in about 90 seconds, says the thing every kid who struggles in school needs to hear.</p>
 </div>
 
+## What the grade book missed
+
 His grade point average was 1.9. He graduated 214th out of a class of 215. His stepfather called him the dumbest person he'd ever met. His teachers said the same. By the time he finally understood what was actually happening in his brain, he'd spent three decades carrying a story about himself that wasn't true.
 
 Here's what he does with that now: he tells every kid he meets the same thing. "How you learn has nothing to do with how brilliant you are."
@@ -38,8 +40,16 @@ Not as a pep talk. As a correction. A factual correction to a lie the school sys
 <p class="embed-caption">PBS NewsHour, 2023. The table read story starts at 1:47, where he describes covering his shame with humor, every week, for eleven years.</p>
 </div>
 
+## What this looks like in your house
+
 The thing that keeps coming up when Winkler talks about this is the gap between what the system measured and what was actually there. He couldn't decode words off a page fast enough to read aloud in a room. But he could memorize a full script overnight. He could improvise through an audition and land the role. He built a 50-year career on skills the grade book had no column for.
 
 That gap is worth sitting with if you're raising a kid who looks similar. A kid who can't sit through homework but can spend four hours deep in a game, a sport, a YouTube rabbit hole is not a kid with a focus problem. That kid's attention works exactly like Winkler's did. Locks onto things that matter. Drifts away from things that don't. The question isn't how to make them more like the system wants. It's how to find the thing the system doesn't know how to measure yet.
 
 Winkler found his at the Happy Days table read. He covered his shame with humor, and the humor turned out to be the job.
+
+He's since written over 30 books in the Hank Zipzer series — stories about a kid with dyslexia navigating school — specifically because he remembered what it felt like to be eight years old and already convinced he was stupid. Kids write to him to say: how did you know me so well?
+
+---
+
+*Sources: [PBS NewsHour, November 2023](https://www.pbs.org/newshour/show/henry-winkler-reflects-on-life-with-dyslexia-and-his-journey-of-self-discovery) — [Child Mind Institute, #MyYoungerSelf](https://childmind.org/blog/henry-winkler/)*
