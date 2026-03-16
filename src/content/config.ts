@@ -17,7 +17,8 @@ const postSchema = z.object({
   description: z.string(),
   tryThisTonightPrompt: z.string(),
   author: z.string().default('SparkMode Team'),
-  draft: z.boolean().default(false),
+  draft: z.boolean().default(true),      // always draft by default — must explicitly set false to publish
+  scheduledDate: z.coerce.date().optional(), // future date — GitHub Action flips draft:false when date arrives
   sources: z.array(z.object({ label: z.string(), url: z.string() })).optional(),
   keywords: z.array(z.string()).optional(),
   mentions: z.array(z.object({ name: z.string(), wikidata: z.string().optional() })).optional(),
