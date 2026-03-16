@@ -68,7 +68,8 @@ const navItems = [
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="header-logo">
-        <img src="/livewire-header-solo.png" alt="LiveWire by SparkMode" height="40" />
+        <img src="/livewire-wordmark-solo.png" alt="LiveWire" height="36" />
+        <span class="header-byline">by <strong>SparkMode</strong></span>
       </a>
       <nav class="site-nav" id="site-nav">
         {navItems.map(item => (
@@ -110,10 +111,11 @@ const navItems = [
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="/livewire-header-solo.png" alt="LiveWire" height="36" />
+        <img src="/livewire-wordmark-solo.png" alt="LiveWire" height="32" />
+        <p class="footer-byline">by <strong>SparkMode</strong></p>
         <p class="footer-tagline">What's working. What's not.<br />No thought leadership.</p>
         <a href="https://sparkmode.com" class="footer-sparkmode" target="_blank" rel="noopener">
-          by SparkMode →
+          Try the SparkMode app →
         </a>
       </div>
       <div class="footer-links">
@@ -180,8 +182,10 @@ const navItems = [
     position: sticky; top: 0; z-index: 200;
   }
   .header-inner { display: flex; align-items: center; gap: 20px; height: 64px; }
-  .header-logo { flex-shrink: 0; display: flex; align-items: center; }
-  .header-logo img { height: 40px; width: auto; display: block; }
+  .header-logo { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; gap: 2px; }
+  .header-logo img { height: 36px; width: auto; display: block; }
+  .header-byline { font-family: var(--font-body); font-size: 12px; font-weight: 400; color: rgba(250,250,247,0.65); letter-spacing: 0.01em; line-height: 1; }
+  .header-byline strong { font-weight: 700; color: var(--color-white); }
   .header-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 
   /* Desktop nav */
@@ -245,7 +249,9 @@ const navItems = [
   /* ── Footer ── */
   .site-footer { border-top: 1px solid rgba(136,136,170,0.12); padding: 48px 0 24px; }
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
-  .footer-brand img { height: 36px; width: auto; margin-bottom: 16px; display: block; }
+  .footer-brand img { height: 32px; width: auto; margin-bottom: 8px; display: block; }
+  .footer-byline { font-size: 14px; font-weight: 400; color: rgba(250,250,247,0.55); margin-bottom: 12px; }
+  .footer-byline strong { font-weight: 700; color: var(--color-white); }
   .footer-tagline { font-size: 13px; color: var(--color-muted); line-height: 1.6; margin-bottom: 16px; }
   .footer-sparkmode { font-size: 13px; font-weight: 700; color: var(--color-spark); text-decoration: none; }
   .footer-sparkmode:hover { opacity: 0.8; }
