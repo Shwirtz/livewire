@@ -4,6 +4,7 @@ import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title?: string;
+  pageTitle?: string;   // optional shorter title for <title> tag (SERP); falls back to title
   description?: string;
   // Article-specific meta — only passed from [slug].astro
   isArticle?: boolean;
@@ -16,6 +17,7 @@ interface Props {
 
 const {
   title = 'LiveWire',
+  pageTitle,
   description = "What's working. What's not. No thought leadership.",
   isArticle = false,
   canonicalURL,
@@ -26,6 +28,9 @@ const {
 } = Astro.props;
 
 const SITE = 'https://livewire.sparkmode.com';
+const serpTitle = pageTitle
+  ? (pageTitle.includes('LiveWire') ? pageTitle : `${pageTitle} — LiveWire`)
+  : (title === 'LiveWire' ? 'LiveWire by SparkMode' : `${title} — LiveWire`);
 const fullTitle = title === 'LiveWire' ? 'LiveWire by SparkMode' : `${title} — LiveWire`;
 const ogImage = `${SITE}/livewire-og.png`;
 const ogURL = canonicalURL ?? `${SITE}${Astro.url.pathname}`;
@@ -44,10 +49,12 @@ const navItems = [
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{fullTitle}</title>
+  <title>{serpTitle}</title>
   <meta name="description" content={description} />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href={ogURL} />
+  <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+  <link rel="alternate" type="application/rss+xml" title="LiveWire by SparkMode" href="/feed.xml" />
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="LiveWire by SparkMode" />

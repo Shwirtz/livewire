@@ -1,6 +1,8 @@
 ---
 title: "Henry Winkler couldn't read until he was 31. Then he wrote 36 books."
+pageTitle: "Henry Winkler's Dyslexia Story — LiveWire"
 date: 2026-03-16
+publishedDate: 2026-03-16
 pillar: they-get-it-too
 description: "Henry Winkler hid his dyslexia for 31 years. Here's what he says to parents of kids the school system has already started to label."
 tryThisTonightPrompt: "Find one thing your kid already reads obsessively. A game wiki, a YouTube comment section, a team roster. Say this out loud to them: that counts. That is reading. You are a reader."
@@ -37,14 +39,17 @@ For eleven seasons, Henry Winkler sat at the Happy Days table read — the whole
 
 He didn't find out he had dyslexia until he was 31. His stepson got tested, and everything they said about the kid was true about him.
 
-<blockquote cite="https://childmind.org/blog/henry-winkler/">"I realized I was not stupid. I had something with a name."</blockquote>
+<blockquote cite="https://childmind.org/blog/henry-winkler/">
+<p>"I realized I was not stupid. I had something with a name."</p>
+<footer><cite>Henry Winkler, Child Mind Institute</cite></footer>
+</blockquote>
 
 The first emotion wasn't relief. It was anger. All that humiliation, all those years of being grounded, called lazy, told he wasn't living up to his potential. For nothing. His brain was just wired differently. The people who punished him had likely passed it to him, because it's hereditary.
 
-<div class="embed-block">
+<figure class="embed-block">
 <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/c5181iKdeh4?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Henry Winkler - Dyslexia and What I Would Tell My Younger Self"></iframe>
-<p class="embed-caption">Henry Winkler, in about 90 seconds, says the thing every kid who struggles in school needs to hear.</p>
-</div>
+<figcaption>Henry Winkler, in about 90 seconds, says the thing every kid who struggles in school needs to hear.</figcaption>
+</figure>
 
 ## What the grade book missed
 
@@ -52,14 +57,17 @@ His grade point average was 1.9. He graduated 214th out of a class of 215. His s
 
 Here's what he does with that now: he tells every kid he meets the same thing.
 
-<blockquote cite="https://www.pbs.org/newshour/show/henry-winkler-reflects-on-life-with-dyslexia-and-his-journey-of-self-discovery">"How you learn has nothing to do with how brilliant you are."</blockquote>
+<blockquote cite="https://www.pbs.org/newshour/show/henry-winkler-reflects-on-life-with-dyslexia-and-his-journey-of-self-discovery">
+<p>"How you learn has nothing to do with how brilliant you are."</p>
+<footer><cite>Henry Winkler, PBS NewsHour</cite></footer>
+</blockquote>
 
 Not as a pep talk. As a correction. A factual correction to a lie the school system told them.
 
-<div class="embed-block">
+<figure class="embed-block">
 <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/kDeembAPKIo?start=107&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Henry Winkler on his dyslexia - PBS NewsHour"></iframe>
-<p class="embed-caption">PBS NewsHour, 2023. The table read story starts at 1:47, where he describes covering his shame with humor, every week, for eleven years.</p>
-</div>
+<figcaption>PBS NewsHour, 2023. The table read story starts at 1:47, where he describes covering his shame with humor, every week, for eleven years.</figcaption>
+</figure>
 
 ## What this looks like in your house
 

@@ -10,7 +10,9 @@ const embedSchema = z.object({
 
 const postSchema = z.object({
   title: z.string(),
-  date: z.coerce.date(),
+  pageTitle: z.string().optional(),      // shorter title for <title> tag / SERP (max ~58 chars)
+  date: z.coerce.date(),                 // last modified date
+  publishedDate: z.coerce.date().optional(), // original publication date — set once, never change
   pillar: z.enum(['11pm-search', 'they-get-it-too', 'no-commission', 'set-the-room', 'add-these']),
   description: z.string(),
   tryThisTonightPrompt: z.string(),
