@@ -69,6 +69,7 @@ const navItems = [
   <meta property="og:image" content={ogImageURL} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={isArticle ? description : "LiveWire by SparkMode — What's working. What's not. No thought leadership."} />
   <meta property="og:url" content={ogURL} />
   {isArticle && publishDate && <meta property="article:published_time" content={publishDate} />}
   {isArticle && modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
@@ -83,6 +84,7 @@ const navItems = [
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageURL} />
   <meta name="twitter:image:alt" content={isArticle ? description : "LiveWire by SparkMode — What's working. What's not. No thought leadership."} />
+  <meta name="author" content="LiveWire Editorial, SparkMode" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
@@ -105,10 +107,21 @@ const navItems = [
     const pillarMatch=window.location.pathname.match(/^\/(11pm-search|they-get-it-too|no-commission|set-the-room|add-these)/);
     if(pillarMatch){gtag('event','pillar_view',{pillar_name:pillarMatch[1],is_article:window.location.pathname.split('/').length>3});}
     if(window.location.pathname.split('/').length>3){
-      const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){gtag('event','article_read',{article_url:window.location.pathname,pillar:pillarMatch?pillarMatch[1]:'unknown'});obs.disconnect();}});},{threshold:0.1});
-      window.addEventListener('load',()=>{const f=document.querySelector('.try-this-tonight');if(f)obs.observe(f);});
+      // Article completed — fires when 80%+ of the TTT block is visible (genuine read signal)
+      const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){gtag('event','article_completed',{article_url:window.location.pathname,pillar:pillarMatch?pillarMatch[1]:'unknown'});obs.disconnect();}});},{threshold:0.8});
+      // Scroll depth — 25%, 50%, 75%
+      const depths=[25,50,75];const reached=new Set();
+      window.addEventListener('scroll',()=>{const pct=Math.round((window.scrollY/(document.body.scrollHeight-window.innerHeight))*100);depths.forEach(d=>{if(pct>=d&&!reached.has(d)){reached.add(d);gtag('event','scroll_depth',{depth:d,article_url:window.location.pathname,pillar:pillarMatch?pillarMatch[1]:'unknown'});}});});
+      window.addEventListener('load',()=>{
+        const f=document.querySelector('.try-this-tonight');if(f)obs.observe(f);
+        // Share button tracking
+        document.querySelectorAll('.share-btn').forEach(el=>{el.addEventListener('click',()=>{const platform=el.classList[1]?.replace('share-','');gtag('event','share_click',{platform,article_url:window.location.pathname,pillar:pillarMatch?pillarMatch[1]:'unknown'});});});
+      });
     }
-    window.addEventListener('load',()=>{document.querySelectorAll('a.header-cta').forEach(el=>{el.addEventListener('click',()=>{gtag('event','sparkmode_cta_click',{location:'header',source_pillar:pillarMatch?pillarMatch[1]:'homepage'});});});});
+    // Outbound link tracking — all external links including SparkMode CTA
+    window.addEventListener('load',()=>{
+      document.querySelectorAll('a[href^="http"]').forEach(el=>{el.addEventListener('click',()=>{const url=el.getAttribute('href');const isSparkMode=url.includes('sparkmode.com');gtag('event',isSparkMode?'sparkmode_cta_click':'outbound_click',{url,location:window.location.pathname,pillar:pillarMatch?pillarMatch[1]:'homepage'});});});
+    });
     }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />

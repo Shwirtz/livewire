@@ -12,6 +12,8 @@ const allPosts = (await Promise.all([
 const isPreview = import.meta.env.PUBLIC_PREVIEW === 'true';
 const filteredPosts = allPosts.filter((p: any) => isPreview || !p.data.draft);
 filteredPosts.sort((a: any, b: any) => (b.data.publishedDate ?? b.data.updatedDate).valueOf() - (a.data.publishedDate ?? a.data.updatedDate).valueOf());
+const recentPosts = filteredPosts.slice(0, 10);
+const hasMore = filteredPosts.length > 10;
 
 const PILLAR_META: Record<string, { label: string; color: string; day: string }> = {
   '11pm-search':     { label: 'The 11pm Search',  color: '#7B2FFF', day: 'Mon & Wed' },
@@ -40,7 +42,7 @@ const PILLAR_META: Record<string, { label: string; color: string; day: string }>
   {filteredPosts.length > 0 ? (
     <section class="feed">
       <h2 class="feed-label">Latest</h2>
-      {filteredPosts.map((post: any) => {
+      {recentPosts.map((post: any) => {
         const meta = PILLAR_META[post.data.pillar];
         const url = `/${post.data.pillar}/${post.slug}`;
         return (
@@ -57,6 +59,7 @@ const PILLAR_META: Record<string, { label: string; color: string; day: string }>
           </a>
         );
       })}
+      {hasMore && <a href="/archive" class="see-all">See all posts →</a>}
     </section>
   ) : (
     <p class="coming-soon">First posts dropping soon. Check back Monday.</p>
@@ -119,6 +122,8 @@ const PILLAR_META: Record<string, { label: string; color: string; day: string }>
   .post-read { color: var(--color-spark); font-weight: 700; font-size: 13px; }
 
   .coming-soon { padding: 60px 0; font-size: 17px; color: var(--color-muted); font-style: italic; }
+  .see-all { display: inline-block; margin-top: 32px; font-size: 14px; font-weight: 700; color: var(--color-spark); text-decoration: none; }
+  .see-all:hover { opacity: 0.8; }
 
   @media (max-width: 600px) {
     .pillar-card { min-width: calc(50% - 5px); }

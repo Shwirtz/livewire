@@ -1,7 +1,23 @@
 User-agent: *
 Allow: /
 
-# Welcome to LiveWire by SparkMode
-# livewire.sparkmode.com
+# Allow all major AI crawlers for GEO coverage
+User-agent: GPTBot
+Allow: /
 
-Sitemap: https://livewire.sparkmode.com/sitemap-index.xml
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://livewire.sparkmode.com/sitemap.xml
