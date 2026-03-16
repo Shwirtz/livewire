@@ -17,9 +17,10 @@ const PILLAR_META: Record<string, { label: string; color: string; description: s
 
 const { pillar } = Astro.params;
 const meta = PILLAR_META[pillar];
+const isPreview = import.meta.env.PUBLIC_PREVIEW === 'true';
 
 const posts = (await getCollection(pillar as any))
-  .filter(p => !p.data.draft)
+  .filter(p => isPreview || !p.data.draft)
   .sort((a, b) => (b.data.publishedDate ?? b.data.updatedDate).valueOf() - (a.data.publishedDate ?? a.data.updatedDate).valueOf());
 ---
 <BaseLayout title={meta.label} description={meta.description}>

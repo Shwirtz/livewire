@@ -8,9 +8,10 @@ const allPosts = (await Promise.all([
   getCollection('no-commission'),
   getCollection('set-the-room'),
   getCollection('add-these'),
-])).flat().filter(p => !p.data.draft);
-
-allPosts.sort((a, b) => (b.data.publishedDate ?? b.data.updatedDate).valueOf() - (a.data.publishedDate ?? a.data.updatedDate).valueOf());
+])).flat();
+const isPreview = import.meta.env.PUBLIC_PREVIEW === 'true';
+const filteredPosts = allPosts.filter((p: any) => isPreview || !p.data.draft);
+filteredPosts.sort((a: any, b: any) => (b.data.publishedDate ?? b.data.updatedDate).valueOf() - (a.data.publishedDate ?? a.data.updatedDate).valueOf());
 
 const PILLAR_META: Record<string, { label: string; color: string; day: string }> = {
   '11pm-search':     { label: 'The 11pm Search',  color: '#7B2FFF', day: 'Mon & Wed' },
@@ -36,10 +37,10 @@ const PILLAR_META: Record<string, { label: string; color: string; day: string }>
     ))}
   </section>
 
-  {allPosts.length > 0 ? (
+  {filteredPosts.length > 0 ? (
     <section class="feed">
       <h2 class="feed-label">Latest</h2>
-      {allPosts.map(post => {
+      {filteredPosts.map((post: any) => {
         const meta = PILLAR_META[post.data.pillar];
         const url = `/${post.data.pillar}/${post.slug}`;
         return (
