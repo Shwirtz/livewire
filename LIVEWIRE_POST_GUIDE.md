@@ -1,10 +1,16 @@
 # LiveWire Post Guide — Single Source of Truth
+# Last updated: 2026-03-16
 
-## Site
-- URL: https://livewire.sparkmode.com
-- Repo: https://github.com/Shwirtz/livewire.git
-- Local: C:\Jacob\SparkMode\LiveWire\livewire-site\
-- Deploy: Vercel, auto-deploys on push to main
+---
+
+## Complete New Post Workflow (in order)
+
+1. Write the markdown file in `src/content/[pillar]/[slug].md` with full frontmatter (see checklist below)
+2. Add one entry to `POSTS` in `C:\Jacob\SparkMode\LiveWire\og_image_gen.py`
+3. Run `python C:\Jacob\SparkMode\LiveWire\og_image_gen.py [slug]`
+4. Verify the generated image at `livewire-site/public/og/[slug].png`
+5. `git add . && git commit -m "[slug]: new post + OG image" && git push`
+6. Vercel auto-deploys. Done.
 
 ---
 
@@ -20,10 +26,10 @@ description: ""            # Meta description, ~150 chars, written for parent se
 tryThisTonightPrompt: ""   # Specific, actionable, first-person, no em-dashes
 author: SparkMode Team
 draft: false
-keywords:                  # 6-10 terms — go into Article JSON-LD schema
+keywords:                  # 6-10 terms — populate Article JSON-LD schema
   - keyword one
   - keyword two
-mentions:                  # One entry per named person in the article
+mentions:                  # One entry per named person
   - name: Full Name
     wikidata: Q######      # Find at wikidata.org/wiki/Special:Search
 sources:                   # Renders below share bar, above nav
@@ -35,8 +41,7 @@ sources:                   # Renders below share bar, above nav
 
 ## Markdown Conventions
 
-### Blockquotes
-Always use full semantic structure with cite:
+### Blockquotes — always full semantic structure
 ```html
 <blockquote cite="https://source-url.com">
 <p>"The exact quote here."</p>
@@ -44,8 +49,7 @@ Always use full semantic structure with cite:
 </blockquote>
 ```
 
-### Video Embeds
-Always use figure/figcaption, never div/p:
+### Video Embeds — always figure/figcaption
 ```html
 <figure class="embed-block">
 <iframe width="100%" height="315"
@@ -55,39 +59,63 @@ Always use figure/figcaption, never div/p:
   allowfullscreen
   title="Descriptive title for accessibility">
 </iframe>
-<figcaption>Caption text here. For YouTube, include timestamp cue if relevant.</figcaption>
+<figcaption>Caption. Include timestamp cue if relevant.</figcaption>
 </figure>
 ```
-
 For timestamped starts: `?start=SECONDS&rel=0`
 
 ---
 
-## Writing Requirements per Post
+## Writing Requirements
 
-1. **Minimum 2 H2 subheadings** — structural section breaks, not just decorative
-2. **One direct-answer anchor sentence near the top** — explicit enough for LLM extraction (e.g. "Henry Winkler has dyslexia, which he didn't discover until age 31...")
-3. **No em-dashes anywhere** — use commas, periods, or parentheses
-4. **No clinical diagnostic language** — never ADHD, dyslexia, IEP, learning disability in copy; describe behaviors instead. Exception: They Get It Too pillar can reference conditions the subject disclosed publicly, in their own words
-5. **ADHD/learning differences overlap** — mention naturally if the subject's story connects to attention patterns; expands GEO reach without forcing it
-6. **Named source citations in frontmatter** — not inline in markdown body
-7. **Entity depth** — include at least one sentence connecting the subject to their most well-known work
+1. Min 2 H2 subheadings — structural section breaks
+2. One direct-answer LLM anchor sentence near the top (e.g. "Henry Winkler has dyslexia, which he didn't discover until age 31...")
+3. No em-dashes anywhere — use commas, periods, or parentheses
+4. No clinical diagnostic language in copy — describe behaviors, not conditions. Exception: They Get It Too can reference conditions the subject disclosed publicly in their own words
+5. Natural mention of ADHD/learning differences overlap where relevant — expands GEO reach
+6. Named source citations in frontmatter sources array — not inline in markdown body
+7. Entity depth sentence — connect subject to their most well-known work
 
 ---
 
-## SEO/GEO — All Automated by Template
+## OG Image Generator
 
-These fire automatically on every post — no action needed:
-- `robots` meta with `max-snippet:-1, max-image-preview:large, max-video-preview:-1`
-- `og:type: article`, `og:image`, `og:image:width/height`
-- `twitter:card`, `twitter:site`, `twitter:creator`, `twitter:image:alt`
-- `article:published_time`, `article:modified_time`, `article:section`, `article:tag`
-- Article JSON-LD schema with `keywords`, `mentions`, `datePublished`, `dateModified`
-- `mentions` Person entity with Wikidata `sameAs` (from frontmatter)
-- BreadcrumbList JSON-LD
-- Canonical tag
-- Sitemap link and RSS link in `<head>`
-- RSS feed auto-includes all non-draft posts
+Script: `C:\Jacob\SparkMode\LiveWire\og_image_gen.py`
+Output: `livewire-site/public/og/[slug].png`
+
+### Design spec (locked)
+- 1200x630px, RGB mode throughout (no RGBA — alpha silently fails on RGB PIL images)
+- Background: #0D0D14 + subtle hex line grid (lines only, no fill, adds max 18 brightness units)
+- Radial orbs: accent color bottom-right (s=0.06), indigo top-left (s=0.04)
+- Top bar: 6px gradient indigo→electric. Bottom bar: 6px gradient spark→dark amber
+- Top-left: LIVEWIRE wordmark PNG at 32px height + "by SparkMode" in Outfit Bold 17pt muted below
+- Headline: BigShoulders Bold, auto-sized (62pt <55 chars, 54pt <75 chars, 46pt longer), white, left accent bar in accent color
+- Bottom-left: livewire.sparkmode.com in Outfit Bold 20pt muted
+- No pill, no category label
+
+### Adding a new post to the generator
+```python
+# In POSTS list at bottom of og_image_gen.py:
+{"slug": "rick-riordan", "pillar": "they-get-it-too",
+ "title": "Rick Riordan wrote Percy Jackson because his son couldn't find himself in books."},
+```
+
+### Critical PIL note
+Never use alpha tuples (e.g. `fill=(0,45,65,30)`) on an RGB image — they silently fail.
+Use solid RGB colors only: `fill=(0,45,65)`.
+
+---
+
+## SEO/GEO — Automatic via Template
+
+Every post gets these automatically — no action needed:
+- `robots` meta: `index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1`
+- `og:type: article`, `og:image` pointing to `/og/[slug].png`, `og:image:width/height`
+- `twitter:card`, `twitter:site @GoSparkMode`, `twitter:creator @GoSparkMode`, `twitter:image:alt`
+- `article:published_time` (from publishedDate), `article:modified_time` (from updatedDate)
+- Article JSON-LD: `keywords`, `mentions` with Wikidata `sameAs`, `datePublished`, `dateModified`
+- BreadcrumbList JSON-LD, canonical tag, sitemap link, RSS link
+- RSS feed auto-includes all non-draft posts across all pillars
 
 ---
 
@@ -101,8 +129,8 @@ These fire automatically on every post — no action needed:
 
 ## Pillars
 
-| Pillar | Slug | Color |
-|--------|------|-------|
+| Pillar | Slug | Accent Color |
+|--------|------|-------------|
 | The 11pm Search | 11pm-search | #7B2FFF |
 | They Get It Too | they-get-it-too | #00D2FF |
 | No Commission | no-commission | #F5A623 |
@@ -111,32 +139,26 @@ These fire automatically on every post — no action needed:
 
 ---
 
-## OG Image Generator
+## They Get It Too — Post Calendar
 
-Script: `C:\Jacob\SparkMode\LiveWire\og_image_gen.py`
-Output: `livewire-site/public/og/[slug].png` (committed to repo, served as static asset)
+| # | Person | Status |
+|---|--------|--------|
+| 1 | Henry Winkler | LIVE |
+| 2 | Rick Riordan | Next |
+| 3 | Simone Biles | |
+| 4 | will.i.am | |
+| 5 | Barbara Corcoran | |
+| 6 | Channing Tatum | |
+| 7 | Michael Phelps | |
+| 8 | Connor DeWolfe | |
 
-**For each new post, add an entry to POSTS in og_image_gen.py:**
-```python
-{"slug": "rick-riordan", "pillar": "they-get-it-too",
- "title": "Rick Riordan wrote Percy Jackson because his son couldn't find himself in books."},
-```
-
-**Then run:**
-```
-python C:\Jacob\SparkMode\LiveWire\og_image_gen.py [slug]
-```
-
-The generated PNG is automatically picked up by the site — no frontmatter changes needed.
-The `[slug].astro` template passes `/og/[slug].png` to Base.astro for all OG and Twitter meta tags.
-
-**Key technical note:** PIL fill tuples must be solid RGB — never include alpha (e.g. `fill=(0,45,65)` not `fill=(0,45,65,30)`). Alpha values silently fail on RGB-mode images.
+Research bank: https://docs.google.com/spreadsheets/d/1ESNHyLRn-NVS-TrYSR_-yG5jIIFCoQkZr7KM7vpshHk
+YouTube transcript scanner: C:\Jacob\SparkMode\yt_transcript.py
 
 ---
 
-## Outstanding (as of 2026-03-16)
+## Outstanding
 
-- [ ] Mobile share bar at 375px — needs visual check
-- [ ] Submit sitemap to Google Search Console — on launch day
+- [ ] Mobile share bar check at 375px viewport
+- [ ] Google Search Console — submit sitemap on launch day
 - [ ] `loading="eager" fetchpriority="high"` on LCP image — wire into template when hero images added
-- [ ] OG image visual polish — pill fill could use a tighter dark tint, consider iterating design
