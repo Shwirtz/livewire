@@ -1,9 +1,9 @@
 ---
 title: "Henry Winkler couldn't read until he was 31. Then he wrote 36 books."
-date: 2025-04-01
+date: 2026-03-16
 pillar: they-get-it-too
-description: "The Fonz spent his entire Happy Days career hiding the fact that he couldn't read off a page. Here's what he'd tell the kid your kid reminds you of."
-tryThisTonightPrompt: "Find one thing your kid already reads obsessively — a game wiki, a YouTube comment section, a team roster — and just say: that counts. That is reading. You are a reader."
+description: "Here's what he'd tell the kid your kid reminds you of."
+tryThisTonightPrompt: "Find one thing your kid already reads obsessively. A game wiki, a YouTube comment section, a team roster. Say this out loud to them: that counts. That is reading. You are a reader."
 author: SparkMode Team
 draft: false
 embeds:
@@ -13,17 +13,17 @@ embeds:
   - type: youtube
     id: kDeembAPKIo
     start: 107
-    caption: "PBS NewsHour, 2023. The table read story starts at 1:47 — and it's devastating in the best way."
+    caption: "PBS NewsHour, 2023. The table read story starts at 1:47 and it's devastating in the best way."
 ---
 
 For eleven seasons, Henry Winkler sat at the Happy Days table read — the whole cast, all the producers, the directors, everyone listening for the first time — and he could not read off the page. Every single week. He covered it with jokes. He made himself into the funniest person in the room so nobody would notice the thing he was most ashamed of.
 
 He didn't find out he had dyslexia until he was 31. His stepson got tested, and everything they said about the kid was true about him. "I realized I was not stupid," he said. "I had something with a name."
 
-The first emotion wasn't relief. It was anger. All that humiliation, all those years of being grounded, called lazy, told he wasn't living up to his potential — for nothing. His brain was just wired differently. The people punishing him literally gave it to him, because it's hereditary.
+The first emotion wasn't relief. It was anger. All that humiliation, all those years of being grounded, called lazy, told he wasn't living up to his potential. For nothing. His brain was just wired differently. The people who punished him had likely passed it to him, because it's hereditary.
 
 <div class="embed-block">
-<iframe width="100%" height="315" src="https://www.youtube.com/embed/c5181iKdeh4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Henry Winkler - Dyslexia and What I Would Tell My Younger Self"></iframe>
+<iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/c5181iKdeh4?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Henry Winkler - Dyslexia and What I Would Tell My Younger Self"></iframe>
 <p class="embed-caption">Henry Winkler, in about 90 seconds, says the thing every kid who struggles in school needs to hear.</p>
 </div>
 
@@ -34,12 +34,12 @@ Here's what he does with that now: he tells every kid he meets the same thing. "
 Not as a pep talk. As a correction. A factual correction to a lie the school system told them.
 
 <div class="embed-block">
-<iframe width="100%" height="315" src="https://www.youtube.com/embed/kDeembAPKIo?start=107" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Henry Winkler on his dyslexia - PBS NewsHour"></iframe>
-<p class="embed-caption">PBS NewsHour, 2023. The table read story starts at 1:47 — the part where he describes covering his shame with humor, every week, for eleven years.</p>
+<iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/kDeembAPKIo?start=107&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Henry Winkler on his dyslexia - PBS NewsHour"></iframe>
+<p class="embed-caption">PBS NewsHour, 2023. The table read story starts at 1:47, where he describes covering his shame with humor, every week, for eleven years.</p>
 </div>
 
-The thing that keeps coming up when Winkler talks about this is the gap between what the system measured and what was actually there. He couldn't decode words off a page fast enough to read aloud in a room. But he could memorize a full script overnight. He could improvise his way through an audition and land the role. He built a 50-year career on skills the grade book had no column for.
+The thing that keeps coming up when Winkler talks about this is the gap between what the system measured and what was actually there. He couldn't decode words off a page fast enough to read aloud in a room. But he could memorize a full script overnight. He could improvise through an audition and land the role. He built a 50-year career on skills the grade book had no column for.
 
-His kid who can't sit through homework but can spend four hours deep in a game, a sport, a YouTube rabbit hole — that's not a problem to fix. That's a kid whose attention works exactly like Winkler's did. Locks onto things that matter. Drifts away from things that don't. The question isn't how to make them more like the system wants them to be. It's how to find the thing the system doesn't know how to measure yet.
+That gap is worth sitting with if you're raising a kid who looks similar. A kid who can't sit through homework but can spend four hours deep in a game, a sport, a YouTube rabbit hole is not a kid with a focus problem. That kid's attention works exactly like Winkler's did. Locks onto things that matter. Drifts away from things that don't. The question isn't how to make them more like the system wants. It's how to find the thing the system doesn't know how to measure yet.
 
 Winkler found his at the Happy Days table read. He covered his shame with humor, and the humor turned out to be the job.
