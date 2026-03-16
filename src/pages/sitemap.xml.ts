@@ -10,7 +10,7 @@ export async function GET(_ctx: APIContext) {
   ).flat().filter((p: any) => !p.data.draft);
 
   const staticPages = [
-    { url: SITE, priority: '1.0', changefreq: 'weekly' },
+    { url: SITE, priority: '1.0', changefreq: 'daily' },
     { url: `${SITE}/11pm-search`, priority: '0.8', changefreq: 'weekly' },
     { url: `${SITE}/they-get-it-too`, priority: '0.8', changefreq: 'weekly' },
     { url: `${SITE}/no-commission`, priority: '0.8', changefreq: 'weekly' },
