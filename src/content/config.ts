@@ -1,5 +1,13 @@
 import { defineCollection, z } from 'astro:content';
 
+const embedSchema = z.object({
+  type: z.enum(['youtube', 'spotify', 'tweet', 'tiktok', 'instagram', 'facebook']),
+  id: z.string(),                        // video ID, tweet ID, TikTok video ID, etc.
+  start: z.number().optional(),          // YouTube timestamp in seconds
+  caption: z.string().optional(),        // text shown below the embed
+  url: z.string().optional(),            // full URL (for tweet/TikTok/Instagram/Facebook)
+});
+
 const postSchema = z.object({
   title: z.string(),
   date: z.coerce.date(),
@@ -8,6 +16,7 @@ const postSchema = z.object({
   tryThisTonightPrompt: z.string(),
   author: z.string().default('SparkMode Team'),
   draft: z.boolean().default(false),
+  embeds: z.array(embedSchema).optional(),   // ordered list of embeds for the post
 });
 
 export const collections = {
