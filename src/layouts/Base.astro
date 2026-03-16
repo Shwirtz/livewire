@@ -197,6 +197,15 @@ const navItems = [
         <a href="/about">About</a>
         <a href="https://sparkmode.com" target="_blank" rel="noopener">SparkMode App</a>
       </div>
+      <div class="footer-signup">
+        <p class="footer-links-label">Stay in the loop</p>
+        <p class="footer-signup-desc">Get new posts from LiveWire.</p>
+        <form class="signup-form" id="footer-signup">
+          <input type="email" name="email" placeholder="your@email.com" required class="signup-input" autocomplete="email" />
+          <button type="submit" class="signup-btn">Join</button>
+        </form>
+        <p class="signup-msg" id="signup-msg" aria-live="polite"></p>
+      </div>
       <div class="footer-links">
         <p class="footer-links-label">Follow</p>
         <a href="https://x.com/GoSparkMode" target="_blank" rel="noopener">X / Twitter</a>
@@ -212,6 +221,44 @@ const navItems = [
 
   <div class="accent-bar-bottom"></div>
   <Analytics />
+
+  <script is:inline>
+    const form = document.getElementById('footer-signup');
+    const msg = document.getElementById('signup-msg');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button');
+        const email = form.querySelector('input[name="email"]').value;
+        btn.disabled = true;
+        btn.textContent = '...';
+        msg.className = 'signup-msg';
+        msg.textContent = '';
+        try {
+          const res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email }),
+          });
+          const data = await res.json();
+          if (res.ok) {
+            msg.className = 'signup-msg success';
+            msg.textContent = 'You\'re on the list.';
+            form.reset();
+          } else {
+            msg.className = 'signup-msg error';
+            msg.textContent = data.error || 'Something went wrong.';
+          }
+        } catch {
+          msg.className = 'signup-msg error';
+          msg.textContent = 'Something went wrong. Try again.';
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Join';
+        }
+      });
+    }
+  </script>
 
   <script is:inline>
     // Hamburger menu toggle
@@ -314,7 +361,7 @@ const navItems = [
 
   /* ── Footer ── */
   .site-footer { border-top: 1px solid rgba(136,136,170,0.12); padding: 48px 0 24px; }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr; gap: 48px; margin-bottom: 40px; }
   .footer-brand img { height: 32px; width: auto; margin-bottom: 8px; display: block; }
   .footer-byline { font-size: 14px; font-weight: 400; color: rgba(250,250,247,0.55); margin-bottom: 12px; }
   .footer-byline strong { font-weight: 700; color: var(--color-white); }
@@ -325,6 +372,18 @@ const navItems = [
   .footer-links-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(136,136,170,0.4); margin-bottom: 4px; }
   .footer-links a { font-size: 14px; color: var(--color-muted); text-decoration: none; transition: color 0.15s; }
   .footer-links a:hover { color: var(--color-white); }
+  .footer-signup { display: flex; flex-direction: column; gap: 8px; }
+  .footer-signup-desc { font-size: 13px; color: var(--color-muted); line-height: 1.5; margin: 0; }
+  .signup-form { display: flex; gap: 6px; margin-top: 4px; }
+  .signup-input { flex: 1; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(136,136,170,0.2); border-radius: 5px; padding: 8px 12px; font-size: 13px; color: var(--color-white); outline: none; transition: border-color 0.15s; }
+  .signup-input::placeholder { color: rgba(136,136,170,0.4); }
+  .signup-input:focus { border-color: rgba(136,136,170,0.5); }
+  .signup-btn { background: var(--color-spark); color: var(--color-bg); border: none; border-radius: 5px; padding: 8px 14px; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; transition: opacity 0.15s; }
+  .signup-btn:hover { opacity: 0.85; }
+  .signup-btn:disabled { opacity: 0.5; cursor: default; }
+  .signup-msg { font-size: 12px; min-height: 16px; margin: 0; }
+  .signup-msg.success { color: #00A896; }
+  .signup-msg.error { color: #FF6B6B; }
   .footer-bottom { font-size: 12px; color: rgba(136,136,170,0.3); padding-top: 24px; border-top: 1px solid rgba(136,136,170,0.08); }
 
   /* ── Responsive ── */
