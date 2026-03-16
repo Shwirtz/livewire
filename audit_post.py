@@ -86,6 +86,14 @@ def audit(slug_path):
 
     # ── BODY CHECKS ───────────────────────────────────────────────────────────
 
+    # Draft posts must have a scheduledDate
+    is_draft = 'draft: true' in frontmatter
+    has_scheduled = 'scheduledDate:' in frontmatter
+    if is_draft and not has_scheduled:
+        check(FAIL, "draft: true but no scheduledDate set — add scheduledDate: YYYY-MM-DD")
+    elif is_draft and has_scheduled:
+        check(PASS, "draft has scheduledDate set")
+
     # No em-dashes — strip URLs first to avoid false positives
     body_no_urls = re.sub(r'https?://\S+', '', body)
     body_no_urls = re.sub(r'cite="[^"]+"', '', body_no_urls)
@@ -135,14 +143,29 @@ def audit(slug_path):
     if nocookie:
         check(PASS, f"{len(nocookie)} youtube-nocookie embed(s)")
 
-    # Internal links
-    internal_links = re.findall(r'\[.+?\]\(/[^h].+?\)', body)
-    if len(internal_links) < 1:
+    # Internal links — check none point to draft posts
+    internal_links = re.findall(r'\[.+?\]\((/they-get-it-too|/11pm-search|/no-commission|/set-the-room|/add-these)(/[^\)]+)?\)', body)
+    draft_link_violations = []
+    for link_pillar, link_slug in internal_links:
+        if link_slug:
+            slug_name = link_slug.strip('/')
+            linked_md = os.path.join(CONTENT_DIR, link_pillar.strip('/'), f"{slug_name}.md")
+            if os.path.exists(linked_md):
+                with open(linked_md, encoding='utf-8') as f:
+                    linked_content = f.read()
+                if 'draft: true' in linked_content:
+                    draft_link_violations.append(f"{link_pillar}/{slug_name}")
+    if draft_link_violations:
+        check(FAIL, f"internal link(s) point to draft post(s): {', '.join(draft_link_violations)} — remove until published")
+    
+    # Internal links count check
+    all_internal = re.findall(r'\[.+?\]\(/[^h].+?\)', body)
+    if len(all_internal) < 1:
         check(FAIL, "no internal links — add 2-3 contextual links to other posts or pillar pages")
-    elif len(internal_links) < 2:
-        check(WARN, f"only {len(internal_links)} internal link — add 1-2 more")
+    elif len(all_internal) < 2:
+        check(WARN, f"only {len(all_internal)} internal link — add 1-2 more")
     else:
-        check(PASS, f"{len(internal_links)} internal link(s)")
+        check(PASS, f"{len(all_internal)} internal link(s)")
 
     # ADHD/learning differences mention
     adhd_mention = bool(re.search(r'\b(ADHD|attention|learning differences|learning differently)\b', body, re.IGNORECASE))
