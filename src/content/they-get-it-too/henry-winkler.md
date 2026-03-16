@@ -80,4 +80,4 @@ Dyslexia and ADHD overlap more than most people realize. Kids who struggle with 
 
 Winkler found his at the Happy Days table read. He covered his shame with humor, and the humor turned out to be the job.
 
-He's since written over 30 books in the Hank Zipzer series, stories about a kid with dyslexia navigating school, specifically because he remembered what it felt like to be eight years old and already convinced he was stupid. Kids write to him to say: how did you know me so well? He's part of a pattern you see in a lot of people who build remarkable things: the grade book had nothing good to say about them.
+He's since written over 30 books in the Hank Zipzer series, stories about a kid with dyslexia navigating school, specifically because he remembered what it felt like to be eight years old and already convinced he was stupid. Kids write to him to say: how did you know me so well? He's part of a pattern you see across [They Get It Too](/they-get-it-too) — people who built remarkable things on the back of a brain the school system had no use for. [Barbara Corcoran](/they-get-it-too/barbara-corcoran) failed second grade. Same story, different industry.
