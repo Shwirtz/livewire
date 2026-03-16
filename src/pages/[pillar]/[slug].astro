@@ -34,7 +34,7 @@ const readingMins = Math.max(1, Math.round(wordCount / 200));
 // Next article in same pillar
 const allInPillar = (await getCollection(post.data.pillar as any))
   .filter(p => !p.data.draft)
-  .sort((a, b) => b.data.updatedDate.valueOf() - a.data.updatedDate.valueOf());
+  .sort((a, b) => (a.data.publishedDate ?? a.data.updatedDate).valueOf() - (b.data.publishedDate ?? b.data.updatedDate).valueOf());
 const currentIndex = allInPillar.findIndex(p => p.slug === post.slug);
 const nextPost = allInPillar[currentIndex + 1] ?? null;
 
