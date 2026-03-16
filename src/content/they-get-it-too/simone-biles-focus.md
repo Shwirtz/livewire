@@ -1,6 +1,6 @@
 ---
 title: "Simone Biles on the pressure to perform when your brain won't cooperate"
-date: 2025-01-07
+updatedDate: 2025-01-07
 pillar: they-get-it-too
 description: "In her own words — what it feels like when the world expects you to be consistent and your focus has other plans."
 tryThisTonightPrompt: "Find a two-minute clip of your kid's favorite athlete, musician, or creator talking about a time they struggled. Watch it with them. Don't say anything after. See if they bring it up themselves."

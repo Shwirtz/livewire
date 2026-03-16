@@ -10,8 +10,8 @@ export async function GET(context: APIContext) {
   ).flat().filter((p: any) => !p.data.draft);
 
   allPosts.sort((a: any, b: any) =>
-    (b.data.publishedDate ?? b.data.date).valueOf() -
-    (a.data.publishedDate ?? a.data.date).valueOf()
+    (b.data.publishedDate ?? b.data.updatedDate).valueOf() -
+    (a.data.publishedDate ?? a.data.updatedDate).valueOf()
   );
 
   return rss({
@@ -20,7 +20,7 @@ export async function GET(context: APIContext) {
     site: context.site ?? 'https://livewire.sparkmode.com',
     items: allPosts.map((post: any) => ({
       title: post.data.title,
-      pubDate: post.data.publishedDate ?? post.data.date,
+      pubDate: post.data.publishedDate ?? post.data.updatedDate,
       description: post.data.description,
       link: `/${post.collection}/${post.slug}/`,
     })),

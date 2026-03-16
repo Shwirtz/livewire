@@ -1,6 +1,6 @@
 ---
 title: "The Pre-Homework Decompression playlist"
-date: 2025-01-10
+updatedDate: 2025-01-10
 pillar: set-the-room
 description: "The 10 minutes before you even attempt homework. Not study music. Reset music."
 tryThisTonightPrompt: "Before homework tonight, put something on — anything ambient, no lyrics — and don't start the work for eight minutes. Don't explain why. Just let the room change."

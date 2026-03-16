@@ -1,6 +1,6 @@
 ---
 title: "Why your kid reads Minecraft wikis for three hours but won't open a chapter book"
-date: 2025-01-06
+updatedDate: 2025-01-06
 pillar: 11pm-search
 description: "It's not laziness. It's not a reading problem. It's a context problem — and there's actually a name for what's happening."
 tryThisTonightPrompt: "Before bed, ask your kid to explain one thing from whatever game, show, or topic they were into today. Don't redirect to anything. Just listen for two minutes. Notice how much vocabulary, detail, and comprehension is already in there."

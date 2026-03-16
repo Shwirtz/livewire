@@ -1,6 +1,6 @@
 ---
 title: "The visual timer that actually changed our mornings"
-date: 2025-01-09
+updatedDate: 2025-01-09
 pillar: no-commission
 description: "We make $0.00 from this link. No affiliate code. Just the thing that worked."
 tryThisTonightPrompt: "Tonight, before you ask your kid to do anything with a time limit, tell them exactly how much time they have and what 'done' looks like. No surprises. See if the transition goes differently."

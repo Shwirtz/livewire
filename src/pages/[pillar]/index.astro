@@ -20,7 +20,7 @@ const meta = PILLAR_META[pillar];
 
 const posts = (await getCollection(pillar as any))
   .filter(p => !p.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  .sort((a, b) => (b.data.publishedDate ?? b.data.updatedDate).valueOf() - (a.data.publishedDate ?? a.data.updatedDate).valueOf());
 ---
 <BaseLayout title={meta.label} description={meta.description}>
   <div class="pillar-header" style={`--accent: ${meta.color}`}>
@@ -37,8 +37,8 @@ const posts = (await getCollection(pillar as any))
           <h2 class="post-title">{post.data.title}</h2>
           <p class="post-desc">{post.data.description}</p>
           <span class="post-meta">
-            <time datetime={post.data.date.toISOString()}>
-              {post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            <time datetime={(post.data.publishedDate ?? post.data.updatedDate).toISOString()}>
+              {(post.data.publishedDate ?? post.data.updatedDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
             </time>
             <span class="post-read">Read →</span>
           </span>

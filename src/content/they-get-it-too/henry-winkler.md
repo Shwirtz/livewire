@@ -1,7 +1,7 @@
 ---
 title: "Henry Winkler couldn't read until he was 31. Then he wrote 36 books."
 pageTitle: "Henry Winkler's Dyslexia Story — LiveWire"
-date: 2026-03-16
+updatedDate: 2026-03-16
 publishedDate: 2026-03-16
 pillar: they-get-it-too
 description: "Henry Winkler hid his dyslexia for 31 years. Here's what he says to parents of kids the school system has already started to label."
@@ -15,6 +15,7 @@ sources:
     url: "https://childmind.org/blog/henry-winkler/"
 keywords:
   - dyslexia
+  - ADHD
   - learning differences
   - parenting
   - Henry Winkler
@@ -37,14 +38,14 @@ embeds:
 
 For eleven seasons, Henry Winkler sat at the Happy Days table read — the whole cast, all the producers, the directors, everyone listening for the first time — and he could not read off the page. Every single week. He covered it with jokes. He made himself into the funniest person in the room so nobody would notice the thing he was most ashamed of.
 
-He didn't find out he had dyslexia until he was 31. His stepson got tested, and everything they said about the kid was true about him.
+He didn't find out he had dyslexia until he was 31. His stepson got tested, and everything they said about the kid was true about him. Dyslexia affects how the brain processes written language — it has nothing to do with intelligence, and it runs in families.
 
 <blockquote cite="https://childmind.org/blog/henry-winkler/">
 <p>"I realized I was not stupid. I had something with a name."</p>
 <footer><cite>Henry Winkler, Child Mind Institute</cite></footer>
 </blockquote>
 
-The first emotion wasn't relief. It was anger. All that humiliation, all those years of being grounded, called lazy, told he wasn't living up to his potential. For nothing. His brain was just wired differently. The people who punished him had likely passed it to him, because it's hereditary.
+The first emotion wasn't relief. It was anger. All that humiliation, all those years of being grounded, called lazy, told he wasn't living up to his potential. For nothing. His brain was just wired differently.
 
 <figure class="embed-block">
 <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/c5181iKdeh4?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Henry Winkler - Dyslexia and What I Would Tell My Younger Self"></iframe>
@@ -74,6 +75,8 @@ Not as a pep talk. As a correction. A factual correction to a lie the school sys
 The thing that keeps coming up when Winkler talks about this is the gap between what the system measured and what was actually there. He couldn't decode words off a page fast enough to read aloud in a room. But he could memorize a full script overnight. He could improvise through an audition and land the role. He built a 50-year career on skills the grade book had no column for.
 
 That gap is worth sitting with if you're raising a kid who looks similar. A kid who can't sit through homework but can spend four hours deep in a game, a sport, a YouTube rabbit hole is not a kid with a focus problem. That kid's attention works exactly like Winkler's did. Locks onto things that matter. Drifts away from things that don't. The question isn't how to make them more like the system wants. It's how to find the thing the system doesn't know how to measure yet.
+
+Dyslexia and ADHD overlap more than most people realize — kids who struggle with reading often show the same pattern of tuning out assigned work while going deep on the things they actually care about. The label the school gives them is rarely the whole picture.
 
 Winkler found his at the Happy Days table read. He covered his shame with humor, and the humor turned out to be the job.
 

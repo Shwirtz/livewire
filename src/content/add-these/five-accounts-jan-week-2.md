@@ -1,6 +1,6 @@
 ---
 title: "Five accounts worth adding this week"
-date: 2025-01-11
+updatedDate: 2025-01-11
 pillar: add-these
 description: "Educators, researchers, and parents putting out genuinely useful content. No gurus. No courses in the bio."
 tryThisTonightPrompt: "Follow one of these accounts tonight. Spend five minutes in their content before you open anything else. See if the algorithm shifts."
