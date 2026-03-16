@@ -37,6 +37,12 @@ jobs:
             git commit -m "Auto-publish: scheduled posts going live [skip ci]"
             git push
             echo "Published posts — Vercel will auto-deploy"
+            # Keep drafts branch in sync so future merges don't revert published posts
+            git fetch origin drafts
+            git checkout drafts
+            git merge main --no-edit -m "Sync: pull published post state from main [skip ci]"
+            git push origin drafts
+            git checkout main
           else
             echo "No posts due for publishing today"
           fi

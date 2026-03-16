@@ -23,7 +23,16 @@ export async function GET(context: APIContext) {
       pubDate: post.data.publishedDate ?? post.data.updatedDate,
       description: post.data.description,
       link: `/${post.collection}/${post.slug}/`,
+      author: 'go@sparkmode.com (LiveWire Editorial)',
+      categories: post.data.keywords ?? [],
     })),
-    customData: `<language>en-us</language>`,
+    customData: `
+      <language>en-us</language>
+      <image>
+        <url>https://livewire.sparkmode.com/livewire-wordmark-solo.png</url>
+        <title>LiveWire by SparkMode</title>
+        <link>https://livewire.sparkmode.com</link>
+      </image>
+    `.trim(),
   });
 }

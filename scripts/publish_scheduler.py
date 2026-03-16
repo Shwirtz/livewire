@@ -2,6 +2,7 @@
 publish_scheduler.py
 Checks all content files for scheduledDate.
 If scheduledDate <= today and draft: true, flips to draft: false.
+Only operates on frontmatter — never touches post body.
 Run by GitHub Actions daily. Also safe to run locally.
 """
 import os, re
@@ -22,12 +23,19 @@ for pillar in os.listdir(CONTENT_DIR):
         with open(fp, 'r', encoding='utf-8') as f:
             content = f.read()
 
-        # Only process files with draft: true
-        if 'draft: true' not in content:
+        # Parse frontmatter only — split on --- delimiters
+        parts = content.split('---', 2)
+        if len(parts) < 3:
+            continue
+        frontmatter = parts[1]
+        body = parts[2]
+
+        # Only process files with draft: true in frontmatter
+        if 'draft: true' not in frontmatter:
             continue
 
-        # Check for scheduledDate
-        sd_match = re.search(r'scheduledDate:\s*(\d{4}-\d{2}-\d{2})', content)
+        # Check for scheduledDate in frontmatter
+        sd_match = re.search(r'scheduledDate:\s*(\d{4}-\d{2}-\d{2})', frontmatter)
         if not sd_match:
             continue
 
@@ -36,13 +44,24 @@ for pillar in os.listdir(CONTENT_DIR):
             print(f'  Pending: {pillar}/{fn[:-3]} scheduled for {scheduled}')
             continue
 
-        # Flip draft: true -> draft: false and set publishedDate if missing
-        updated = content.replace('draft: true', 'draft: false')
-        if 'publishedDate:' not in updated:
-            updated = updated.replace(
+        # Flip draft: true -> draft: false in frontmatter only
+        new_frontmatter = frontmatter.replace('draft: true', 'draft: false')
+
+        # Set publishedDate if missing
+        if 'publishedDate:' not in new_frontmatter:
+            new_frontmatter = new_frontmatter.replace(
                 f'scheduledDate: {sd_match.group(1)}',
                 f'publishedDate: {scheduled}\nscheduledDate: {sd_match.group(1)}'
             )
+
+        # Update updatedDate to today (publish date = last modified)
+        new_frontmatter = re.sub(
+            r'updatedDate:\s*\d{4}-\d{2}-\d{2}',
+            f'updatedDate: {today}',
+            new_frontmatter
+        )
+
+        updated = f'---{new_frontmatter}---{body}'
 
         with open(fp, 'w', encoding='utf-8') as f:
             f.write(updated)

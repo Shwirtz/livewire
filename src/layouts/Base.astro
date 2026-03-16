@@ -29,6 +29,8 @@ const {
   tags = [],
 } = Astro.props;
 
+const isProduction = import.meta.env.PROD && !import.meta.env.PUBLIC_PREVIEW;
+
 const SITE = 'https://livewire.sparkmode.com';
 const serpTitle = pageTitle
   ? (pageTitle.includes('LiveWire') ? pageTitle : `${pageTitle} — LiveWire`)
@@ -53,9 +55,10 @@ const navItems = [
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{serpTitle}</title>
   <meta name="description" content={description} />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="robots" content={isProduction ? 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' : 'noindex, nofollow'} />
+  <meta property="og:locale" content="en_US" />
   <link rel="canonical" href={ogURL} />
-  <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <link rel="alternate" type="application/rss+xml" title="LiveWire by SparkMode" href="/feed.xml" />
 
   <!-- Open Graph -->
