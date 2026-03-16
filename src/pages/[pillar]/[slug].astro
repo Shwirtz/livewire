@@ -38,7 +38,7 @@ const nextPost = allInPillar[currentIndex + 1] ?? null;
 // Social share URLs — native, no third-party scripts
 const encoded = encodeURIComponent(canonicalURL);
 const encodedText = encodeURIComponent(`${post.data.title} from @GoSparkMode`);
-const xShareURL = `https://x.com/intent/tweet?text=${encodedText}&url=${encoded}&via=GoSparkMode`;
+const xShareURL = `https://x.com/intent/tweet?text=${encodedText}&url=${encoded}`;
 const fbShareURL = `https://www.facebook.com/sharer/sharer.php?u=${encoded}`;
 const whatsappURL = `https://wa.me/?text=${encodedText}%20${encoded}`;
 const threadsURL = `https://www.threads.net/intent/post?text=${encodedText}%20${encoded}`;

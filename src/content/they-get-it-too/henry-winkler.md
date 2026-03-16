@@ -6,6 +6,11 @@ description: "Henry Winkler hid his dyslexia for 31 years. Here's what he says t
 tryThisTonightPrompt: "Find one thing your kid already reads obsessively. A game wiki, a YouTube comment section, a team roster. Say this out loud to them: that counts. That is reading. You are a reader."
 author: SparkMode Team
 draft: false
+sources:
+  - label: "PBS NewsHour, November 2023"
+    url: "https://www.pbs.org/newshour/show/henry-winkler-reflects-on-life-with-dyslexia-and-his-journey-of-self-discovery"
+  - label: "Child Mind Institute, #MyYoungerSelf"
+    url: "https://childmind.org/blog/henry-winkler/"
 embeds:
   - type: youtube
     id: c5181iKdeh4
