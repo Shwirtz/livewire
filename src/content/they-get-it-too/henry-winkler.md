@@ -11,6 +11,18 @@ sources:
     url: "https://www.pbs.org/newshour/show/henry-winkler-reflects-on-life-with-dyslexia-and-his-journey-of-self-discovery"
   - label: "Child Mind Institute, #MyYoungerSelf"
     url: "https://childmind.org/blog/henry-winkler/"
+keywords:
+  - dyslexia
+  - learning differences
+  - parenting
+  - Henry Winkler
+  - Hank Zipzer
+  - struggling readers
+  - school labels
+  - reading difficulties
+mentions:
+  - name: Henry Winkler
+    wikidata: Q313039
 embeds:
   - type: youtube
     id: c5181iKdeh4
@@ -23,7 +35,9 @@ embeds:
 
 For eleven seasons, Henry Winkler sat at the Happy Days table read — the whole cast, all the producers, the directors, everyone listening for the first time — and he could not read off the page. Every single week. He covered it with jokes. He made himself into the funniest person in the room so nobody would notice the thing he was most ashamed of.
 
-He didn't find out he had dyslexia until he was 31. His stepson got tested, and everything they said about the kid was true about him. "I realized I was not stupid," he said. "I had something with a name."
+He didn't find out he had dyslexia until he was 31. His stepson got tested, and everything they said about the kid was true about him.
+
+<blockquote cite="https://childmind.org/blog/henry-winkler/">"I realized I was not stupid. I had something with a name."</blockquote>
 
 The first emotion wasn't relief. It was anger. All that humiliation, all those years of being grounded, called lazy, told he wasn't living up to his potential. For nothing. His brain was just wired differently. The people who punished him had likely passed it to him, because it's hereditary.
 
@@ -36,7 +50,9 @@ The first emotion wasn't relief. It was anger. All that humiliation, all those y
 
 His grade point average was 1.9. He graduated 214th out of a class of 215. His stepfather called him the dumbest person he'd ever met. His teachers said the same. By the time he finally understood what was actually happening in his brain, he'd spent three decades carrying a story about himself that wasn't true.
 
-Here's what he does with that now: he tells every kid he meets the same thing. "How you learn has nothing to do with how brilliant you are."
+Here's what he does with that now: he tells every kid he meets the same thing.
+
+<blockquote cite="https://www.pbs.org/newshour/show/henry-winkler-reflects-on-life-with-dyslexia-and-his-journey-of-self-discovery">"How you learn has nothing to do with how brilliant you are."</blockquote>
 
 Not as a pep talk. As a correction. A factual correction to a lie the school system told them.
 
