@@ -4,9 +4,10 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const PILLARS = ['11pm-search','they-get-it-too','no-commission','set-the-room','add-these'];
+  const isPreview = import.meta.env.PUBLIC_PREVIEW === 'true';
   const allPosts = (await Promise.all(PILLARS.map(p => getCollection(p as any)))).flat();
   return allPosts
-    .filter(post => !post.data.draft)
+    .filter(post => isPreview || !post.data.draft)
     .map(post => ({
     params: { pillar: post.collection, slug: post.slug },
     props: { post },
