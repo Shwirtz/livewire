@@ -22,21 +22,21 @@ const emailHtml = (unsubscribeUrl) => `
     <a href="https://livewire.sparkmode.com" style="display:inline-block;text-decoration:none;">
       <img src="https://livewire.sparkmode.com/livewire-wordmark-solo.png" alt="LiveWire" height="32" style="display:block;border:0;" />
     </a>
-    <p style="margin:6px 0 0;font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:0.02em;">by SparkMode</p>
+    <p style="margin:6px 0 0;font-size:12px;color:rgba(255,255,255,0.65);letter-spacing:0.02em;">by SparkMode</p>
   </td></tr>
 
   <!-- Body -->
   <tr><td style="padding:32px 40px 28px;">
     <h1 style="font-size:24px;font-weight:700;color:#FAFAF7;margin:0 0 16px;line-height:1.25;letter-spacing:-0.01em;">You're on the list.</h1>
-    <p style="font-size:16px;color:rgba(250,250,247,0.75);line-height:1.75;margin:0 0 28px;">LiveWire is for parents who are past the obvious stuff. No frameworks. No signature methods. Just what's actually working, what isn't, and why.</p>
+    <p style="font-size:16px;color:rgba(250,250,247,0.9);line-height:1.75;margin:0 0 28px;">LiveWire is for parents who are past the obvious stuff. No frameworks. No signature methods. Just what's actually working, what isn't, and why.</p>
 
-    <p style="font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,250,247,0.35);margin:0 0 16px;">What we cover</p>
+    <p style="font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,250,247,0.5);margin:0 0 16px;">What we cover</p>
 
     <!-- 11pm Search -->
     <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:12px;">
     <tr><td style="padding:16px 20px;border-radius:6px;border-left:3px solid #7B2FFF;background:rgba(123,47,255,0.08);">
       <p style="margin:0 0 4px;font-size:12px;font-weight:700;color:#7B2FFF;letter-spacing:0.08em;text-transform:uppercase;">The 11pm Search</p>
-      <p style="margin:0 0 10px;font-size:14px;color:rgba(250,250,247,0.7);line-height:1.6;">Researched answers to what parents actually Google at night. Specific, cited, no filler.</p>
+      <p style="margin:0 0 10px;font-size:14px;color:rgba(250,250,247,0.85);line-height:1.6;">Researched answers to what parents actually Google at night. Specific, cited, no filler.</p>
       <a href="https://livewire.sparkmode.com/11pm-search" style="font-size:13px;font-weight:700;color:#7B2FFF;text-decoration:none;">Browse posts</a>
     </td></tr></table>
 
@@ -44,7 +44,7 @@ const emailHtml = (unsubscribeUrl) => `
     <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:12px;">
     <tr><td style="padding:16px 20px;border-radius:6px;border-left:3px solid #00D2FF;background:rgba(0,210,255,0.06);">
       <p style="margin:0 0 4px;font-size:12px;font-weight:700;color:#00D2FF;letter-spacing:0.08em;text-transform:uppercase;">They Get It Too</p>
-      <p style="margin:0 0 10px;font-size:14px;color:rgba(250,250,247,0.7);line-height:1.6;">How well-known people describe learning differently, in their own words. No labels.</p>
+      <p style="margin:0 0 10px;font-size:14px;color:rgba(250,250,247,0.9);line-height:1.6;">How well-known people describe learning differently, in their own words. No labels.</p>
       <a href="https://livewire.sparkmode.com/they-get-it-too" style="font-size:13px;font-weight:700;color:#00D2FF;text-decoration:none;">Browse posts</a>
     </td></tr></table>
 
@@ -52,7 +52,7 @@ const emailHtml = (unsubscribeUrl) => `
     <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:12px;">
     <tr><td style="padding:16px 20px;border-radius:6px;border-left:3px solid #F5A623;background:rgba(245,166,35,0.06);">
       <p style="margin:0 0 4px;font-size:12px;font-weight:700;color:#F5A623;letter-spacing:0.08em;text-transform:uppercase;">No Commission</p>
-      <p style="margin:0 0 10px;font-size:14px;color:rgba(250,250,247,0.7);line-height:1.6;">Product recs with zero affiliate codes. We make $0.00 from any link on this site. The disclaimer is the whole point.</p>
+      <p style="margin:0 0 10px;font-size:14px;color:rgba(250,250,247,0.9);line-height:1.6;">Product recs with zero affiliate codes. We make $0.00 from any link on this site. The disclaimer is the whole point.</p>
       <a href="https://livewire.sparkmode.com/no-commission" style="font-size:13px;font-weight:700;color:#F5A623;text-decoration:none;">Browse posts</a>
     </td></tr></table>
 
@@ -60,7 +60,7 @@ const emailHtml = (unsubscribeUrl) => `
     <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:12px;">
     <tr><td style="padding:16px 20px;border-radius:6px;border-left:3px solid #00A896;background:rgba(0,168,150,0.06);">
       <p style="margin:0 0 4px;font-size:12px;font-weight:700;color:#00A896;letter-spacing:0.08em;text-transform:uppercase;">Set the Room</p>
-      <p style="margin:0 0 10px;font-size:14px;color:rgba(250,250,247,0.7);line-height:1.6;">Playlists and ambient audio mapped to specific parenting moments. Not just "focus music."</p>
+      <p style="margin:0 0 10px;font-size:14px;color:rgba(250,250,247,0.9);line-height:1.6;">Playlists and ambient audio mapped to specific parenting moments. Not just "focus music."</p>
       <a href="https://livewire.sparkmode.com/set-the-room" style="font-size:13px;font-weight:700;color:#00A896;text-decoration:none;">Browse posts</a>
     </td></tr></table>
 
@@ -68,22 +68,22 @@ const emailHtml = (unsubscribeUrl) => `
     <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:0;">
     <tr><td style="padding:16px 20px;border-radius:6px;border-left:3px solid #4F3FFF;background:rgba(79,63,255,0.06);">
       <p style="margin:0 0 4px;font-size:12px;font-weight:700;color:#8070FF;letter-spacing:0.08em;text-transform:uppercase;">Add These</p>
-      <p style="margin:0 0 10px;font-size:14px;color:rgba(250,250,247,0.7);line-height:1.6;">Five people worth your feed this week. Short, opinionated, no fluff.</p>
+      <p style="margin:0 0 10px;font-size:14px;color:rgba(250,250,247,0.9);line-height:1.6;">Five people worth your feed this week. Short, opinionated, no fluff.</p>
       <a href="https://livewire.sparkmode.com/add-these" style="font-size:13px;font-weight:700;color:#8070FF;text-decoration:none;">Browse posts</a>
     </td></tr></table>
   </td></tr>
 
   <!-- SparkMode -->
   <tr><td style="padding:20px 40px;border-top:1px solid rgba(255,255,255,0.07);background:rgba(255,255,255,0.02);">
-    <p style="font-size:13px;color:rgba(250,250,247,0.45);line-height:1.7;margin:0 0 10px;">LiveWire is published by <strong style="color:rgba(250,250,247,0.7);">SparkMode</strong>, a personalized story generator for kids who learn differently. Your child's obsession becomes the content. The learning is real; it just doesn't look like school.</p>
+    <p style="font-size:13px;color:rgba(250,250,247,0.75);line-height:1.7;margin:0 0 10px;">LiveWire is published by <strong style="color:rgba(250,250,247,0.9);">SparkMode</strong>, a personalized story generator for kids who learn differently. Your child's obsession becomes the content. The learning is real; it just doesn't look like school.</p>
     <a href="https://sparkmode.com" style="font-size:13px;font-weight:700;color:#F5A623;text-decoration:none;">Try SparkMode free</a>
   </td></tr>
 
   <!-- Footer -->
   <tr><td style="padding:18px 40px;border-top:1px solid rgba(255,255,255,0.05);">
-    <p style="font-size:12px;color:rgba(250,250,247,0.25);margin:0;line-height:1.7;">
+    <p style="font-size:12px;color:rgba(250,250,247,0.6);margin:0;line-height:1.7;">
       You signed up at livewire.sparkmode.com.&nbsp;
-      <a href="${unsubscribeUrl}" style="color:rgba(250,250,247,0.35);text-decoration:underline;">Unsubscribe</a>
+      <a href="${unsubscribeUrl}" style="color:rgba(250,250,247,0.65);text-decoration:underline;">Unsubscribe</a>
     </p>
   </td></tr>
 
