@@ -5,12 +5,34 @@
 
 ## Complete New Post Workflow (in order)
 
-1. Write the markdown file in `src/content/[pillar]/[slug].md` with full frontmatter (see checklist below)
+1. Write the markdown file in `src/content/[pillar]/[slug].md` with full frontmatter
 2. Add one entry to `POSTS` in `C:\Jacob\SparkMode\LiveWire\og_image_gen.py`
 3. Run `python C:\Jacob\SparkMode\LiveWire\og_image_gen.py [slug]`
-4. Verify the generated image at `livewire-site/public/og/[slug].png`
-5. `git add . && git commit -m "[slug]: new post + OG image" && git push`
-6. Vercel auto-deploys. Done.
+4. **Run `python C:\Jacob\SparkMode\LiveWire\audit_post.py [pillar]/[slug]`**
+5. **Fix every FAIL before proceeding. WARN items are advisory.**
+6. `git add . && git commit -m "[slug]: new post + OG image" && git push`
+7. Vercel auto-deploys. Done.
+
+## Audit Script
+
+Script: `C:\Jacob\SparkMode\LiveWire\audit_post.py`
+
+Checks automatically:
+- All required frontmatter fields present
+- No em-dashes in copy
+- Minimum 2 H2 headings (3 recommended)
+- LLM anchor sentence near top
+- Blockquotes have `<footer><cite>` attribution
+- Embeds use `<figure><figcaption>` not `<div><p>`
+- YouTube uses youtube-nocookie.com
+- Minimum 2 internal links
+- ADHD/learning differences mentioned
+- Word count 500+ (700+ preferred)
+- No forbidden words
+- No banned clinical labels
+- OG image file exists
+
+Run on all posts: `python C:\Jacob\SparkMode\LiveWire\audit_post.py --all`
 
 ---
 
