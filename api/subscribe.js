@@ -18,7 +18,9 @@ const emailHtml = `
 
   <!-- Header -->
   <tr><td style="padding:28px 40px 24px;border-bottom:1px solid rgba(255,255,255,0.07);">
-    <img src="https://livewire.sparkmode.com/livewire-wordmark-solo.png" alt="LiveWire" height="32" style="display:block;" />
+    <a href="https://livewire.sparkmode.com" style="display:inline-block;text-decoration:none;">
+      <img src="https://livewire.sparkmode.com/livewire-wordmark-solo.png" alt="LiveWire" height="32" style="display:block;border:0;" />
+    </a>
     <p style="margin:6px 0 0;font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:0.02em;">by SparkMode</p>
   </td></tr>
 
