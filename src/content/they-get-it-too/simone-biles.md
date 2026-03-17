@@ -1,14 +1,14 @@
 ---
-title: "Simone Biles didn't hide her ADHD. Russian hackers tried to make her ashamed of it anyway."
-pageTitle: "Simone Biles ADHD: Nothing to Be Ashamed Of"
-updatedDate: 2026-03-16
-publishedDate: 2026-03-20
+title: "Simone Biles has taken ADHD medication since she was a kid. She is the most decorated gymnast in history."
+pageTitle: "Simone Biles: ADHD Medication and 7 Olympic Golds"
+updatedDate: 2026-03-17
+publishedDate: 2026-03-24
 pillar: they-get-it-too
-description: "In 2016, hackers leaked Simone Biles' medical records to accuse her of cheating. Her two-sentence response said everything about ADHD and shame."
+description: "Simone Biles took ADHD medication every morning of her career. She also won 7 Olympic gold medals. The two things are not in conflict."
 tryThisTonightPrompt: "If your kid takes medication for anything, brain-related or not, say this to them tonight, that taking medicine for the way your brain works is the same as taking medicine for anything else. There's nothing to hide."
 author: SparkMode Team
 draft: true
-scheduledDate: 2026-03-20
+scheduledDate: 2026-03-24
 keywords:
   - ADHD
   - learning differences
@@ -55,17 +55,18 @@ The Winkler and Corcoran stories are about adults who spent decades not knowing 
 
 That is, on paper, the system working. And it still doesn't feel like a win, because the part no one talks about is what it costs a kid to grow up knowing their brain is categorized differently. Even with early diagnosis and appropriate treatment, the label follows you. Other kids find out. Teachers treat you differently. You learn very early that some information about yourself is safer kept quiet.
 
-Biles kept it quiet. She had no particular reason to go public with it. She was the most decorated gymnast in American history, she had won four gold medals in Rio, and her ADHD was a medical detail between her and her doctor. Then someone decided to weaponize it.
+Biles kept it quiet. She had no particular reason to go public with it. She was the most decorated gymnast in American history, she had won four gold medals in Rio, and her ADHD was a medical detail between her and her doctor. Then someone decided to weaponize it. She responded with two tweets posted three minutes apart.
 
 <figure class="embed-block">
-<iframe width="100%" height="315"
-  src="https://www.youtube-nocookie.com/embed/ke3Pb9_oMrg?start=446&rel=0"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-  title="Michael Phelps on ADHD and school - Raj Shamani Podcast">
-</iframe>
-<figcaption>Not Biles, but Phelps, the other Olympic gold medalist who grew up with ADHD while the system decided what to make of him. The school section starts at 7:26. His teacher told him he'd never amount to anything.</figcaption>
+<blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">I have ADHD and I have taken medicine for it since I was a kid please know, I believe in clean sport, have always followed the rules, and will continue to do so as fair play is critical to sport and is very important to me.</p>&mdash; Simone Biles (@Simone_Biles) <a href="https://twitter.com/Simone_Biles/status/775785503496855552">September 13, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<figcaption>The first tweet. Factual, direct, no preamble.</figcaption>
+</figure>
+
+<figure class="embed-block">
+<blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">Having ADHD, and taking medicine for it is nothing to be ashamed of nothing that I&#39;m afraid to let people know.</p>&mdash; Simone Biles (@Simone_Biles) <a href="https://twitter.com/Simone_Biles/status/775785767855611905">September 13, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<figcaption>The second tweet, three minutes later. That was her complete public statement.</figcaption>
 </figure>
 
 ## What her brain actually did in the gym
