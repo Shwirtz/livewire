@@ -54,10 +54,10 @@ for pillar in os.listdir(CONTENT_DIR):
                 f'publishedDate: {scheduled}\nscheduledDate: {sd_match.group(1)}'
             )
 
-        # Update updatedDate to today (publish date = last modified)
+        # Update updatedDate to match scheduledDate (not today, which could be before publishedDate)
         new_frontmatter = re.sub(
             r'updatedDate:\s*\d{4}-\d{2}-\d{2}',
-            f'updatedDate: {today}',
+            f'updatedDate: {scheduled}',
             new_frontmatter
         )
 

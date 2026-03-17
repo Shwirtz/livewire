@@ -38,14 +38,14 @@ Her response was two sentences, posted publicly, and then she was done with the 
 
 <blockquote cite="https://www.si.com/olympics/2016/09/13/serena-venus-williams-simone-biles-drug-test-leak-russian-hackers">
 <p>"I have ADHD and I have taken medicine for it since I was a kid. Having ADHD, and taking medicine for it is nothing to be ashamed of, nothing that I'm afraid to let people know."</p>
-<footer><cite>Simone Biles, September 13 2016</cite></footer>
+<footer><cite>Simone Biles, September 13, 2016</cite></footer>
 </blockquote>
 
 The hackers were counting on shame. They didn't find any.
 
 ## What "diagnosed as a kid" actually looks like
 
-Unlike [Henry Winkler](/they-get-it-too/henry-winkler) or Barbara Corcoran, Biles didn't spend decades not knowing what was wrong. She was diagnosed young, medicated young, and the medication worked. The system, on paper, functioned.
+Unlike [Henry Winkler](/they-get-it-too/henry-winkler), who didn't find out he had dyslexia until he was 31, or [Barbara Corcoran](/they-get-it-too/barbara-corcoran), who failed second grade before anyone understood why, Biles didn't spend decades not knowing what was wrong. She was diagnosed young, medicated young, and the medication worked.
 
 And it still didn't feel like a clean win, because what nobody talks about is what it costs a kid to grow up knowing their brain is categorized differently. The label follows you. Other kids find out. Teachers treat you differently. You learn early that some information about yourself is safer kept quiet.
 
@@ -53,7 +53,7 @@ So she kept it quiet. Her ADHD was private medical information, between her and 
 
 ## The focus wasn't missing. It was selective.
 
-Biles has said, in several places, that even with ADHD she could be laser-focused in the gym. That sentence tends to get used as inspiration. It's more interesting than that.
+Biles has said that even with ADHD she could be laser-focused in the gym. That sentence tends to get used as inspiration. It's more interesting than that.
 
 The same brain that struggled to concentrate in school locked in completely when she was doing something it found rewarding. The ADHD didn't disappear. The context changed. This is the pattern parents of kids who "won't focus" already know but rarely hear confirmed: the attention works. It just works on its own terms.
 
@@ -71,4 +71,4 @@ The stigma around ADHD medication is almost entirely about shame. The medication
 
 Biles took her medication every morning of her career. The two things, the medals and the medication, were not in conflict. The second one made the first one possible.
 
-That is worth saying out loud to your kid, not once but regularly. Same as [Henry Winkler](/they-get-it-too/henry-winkler), who covered his for 31 years. The interesting part is never the diagnosis. It's what they do with it.
+That is worth saying out loud to your kid, not once but regularly. The medication is part of what makes the rest possible. It is not a secret. It is not a compromise. It is just how the brain gets what it needs to do what it can do.
