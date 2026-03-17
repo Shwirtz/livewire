@@ -192,7 +192,7 @@ const breadcrumbSchema = {
   :global(.article-body em) { font-style: italic; }
   :global(.article-body hr) { border: none; border-top: 1px solid rgba(136,136,170,0.15); margin: 48px 0 32px; }
   :global(.article-body blockquote) { border-left: 3px solid var(--accent); padding: 4px 0 4px 24px; margin: 36px 0; color: var(--color-white); font-style: italic; font-size: 20px; line-height: 1.65; }
-  :global(.article-body blockquote footer) { margin-top: 10px; font-style: normal; font-size: 13px; color: var(--color-muted); }
+  :global(.article-body blockquote.twitter-tweet) { border-left: none; padding: 0; margin: 24px 0; font-style: normal; font-size: inherit; color: inherit; }
   :global(.article-body blockquote footer cite) { font-style: normal; }
   :global(.article-body blockquote:has(h2)) { border-left: none; padding: 24px 28px; background: rgba(136,136,170,0.06); border-radius: 8px; margin: 40px 0; font-size: inherit; }
   :global(.article-body blockquote h2) { font-family: var(--font-display); font-size: clamp(22px,3vw,30px); font-weight: 700; color: var(--color-white); margin: 0; }
