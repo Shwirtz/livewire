@@ -58,15 +58,21 @@ That is, on paper, the system working. And it still doesn't feel like a win, bec
 Biles kept it quiet. She had no particular reason to go public with it. She was the most decorated gymnast in American history, she had won four gold medals in Rio, and her ADHD was a medical detail between her and her doctor. Then someone decided to weaponize it. She responded with two tweets posted three minutes apart.
 
 <figure class="embed-block">
-<blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">I have ADHD and I have taken medicine for it since I was a kid please know, I believe in clean sport, have always followed the rules, and will continue to do so as fair play is critical to sport and is very important to me.</p>&mdash; Simone Biles (@Simone_Biles) <a href="https://twitter.com/Simone_Biles/status/775785503496855552">September 13, 2016</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="tweet-embed"><blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">I have ADHD and I have taken medicine for it since I was a kid please know, I believe in clean sport, have always followed the rules, and will continue to do so as fair play is critical to sport and is very important to me.</p>&mdash; Simone Biles (@Simone_Biles) <a href="https://twitter.com/Simone_Biles/status/775785503496855552">September 13, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
 <figcaption>The first tweet. Factual, direct, no preamble.</figcaption>
 </figure>
 
 <figure class="embed-block">
-<blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">Having ADHD, and taking medicine for it is nothing to be ashamed of nothing that I&#39;m afraid to let people know.</p>&mdash; Simone Biles (@Simone_Biles) <a href="https://twitter.com/Simone_Biles/status/775785767855611905">September 13, 2016</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="tweet-embed"><blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">Having ADHD, and taking medicine for it is nothing to be ashamed of nothing that I&#39;m afraid to let people know.</p>&mdash; Simone Biles (@Simone_Biles) <a href="https://twitter.com/Simone_Biles/status/775785767855611905">September 13, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
 <figcaption>The second tweet, three minutes later. That was her complete public statement.</figcaption>
+</figure>
+
+<figure class="embed-block">
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQC6UuqkqyH/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+<script async src="//www.instagram.com/embed.js"></script>
+<figcaption>Simone Biles on Instagram.</figcaption>
 </figure>
 
 ## What her brain actually did in the gym
