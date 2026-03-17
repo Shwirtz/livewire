@@ -40,9 +40,15 @@ She also hadn't told the world she had ADHD. That was private medical informatio
 
 Her response was two tweets posted three minutes apart.
 
-<blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">I have ADHD and I have taken medicine for it since I was a kid please know, I believe in clean sport, have always followed the rules, and will continue to do so as fair play is critical to sport and is very important to me.</p>&mdash; Simone Biles (@Simone_Biles) <a href="https://twitter.com/Simone_Biles/status/775785503496855552">September 13, 2016</a></blockquote>
+<blockquote cite="https://www.si.com/olympics/2016/09/13/serena-venus-williams-simone-biles-drug-test-leak-russian-hackers">
+<p>"I have ADHD and I have taken medicine for it since I was a kid. Please know, I believe in clean sport, have always followed the rules, and will continue to do so as fair play is critical to sport and is very important to me."</p>
+<footer><cite>Simone Biles, X (now deleted), September 13 2016</cite></footer>
+</blockquote>
 
-<blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">Having ADHD, and taking medicine for it is nothing to be ashamed of nothing that I&#39;m afraid to let people know.</p>&mdash; Simone Biles (@Simone_Biles) <a href="https://twitter.com/Simone_Biles/status/775785767855611905">September 13, 2016</a></blockquote>
+<blockquote cite="https://www.si.com/olympics/2016/09/13/serena-venus-williams-simone-biles-drug-test-leak-russian-hackers">
+<p>"Having ADHD, and taking medicine for it is nothing to be ashamed of, nothing that I'm afraid to let people know."</p>
+<footer><cite>Simone Biles, X (now deleted), September 13 2016</cite></footer>
+</blockquote>
 
 No press conference. No long statement walking through the trauma of it. Posted publicly, and then she was done with the conversation.
 
