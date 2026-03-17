@@ -38,24 +38,7 @@ Biles had a therapeutic use exemption. She had followed every rule. She hadn't c
 
 She also hadn't told the world she had ADHD. That was private medical information, and now it wasn't private anymore.
 
-Her response was two sentences.
-
-<blockquote cite="https://x.com/Simone_Biles/status/775785767855611905">
-<p>"Having ADHD, and taking medicine for it is nothing to be ashamed of, nothing that I'm afraid to let people know."</p>
-<footer><cite>Simone Biles, X (formerly Twitter), September 13 2016</cite></footer>
-</blockquote>
-
-That's it. No press conference. No long statement walking through the trauma of it. Two sentences, posted publicly, and then she was done with the conversation.
-
-The hackers were counting on shame. They didn't find any.
-
-## What "diagnosed as a kid" actually looks like
-
-The Winkler and Corcoran stories are about adults who spent decades not knowing what was wrong. Biles is different. She was diagnosed young, started medication young, and the medication helped her focus in school. The pattern the system usually catches (can't sit still, brain moves fast, trouble concentrating on things that don't grab her) was there. Her grandparents got her assessed. The assessment came back. She started treatment.
-
-That is, on paper, the system working. And it still doesn't feel like a win, because the part no one talks about is what it costs a kid to grow up knowing their brain is categorized differently. Even with early diagnosis and appropriate treatment, the label follows you. Other kids find out. Teachers treat you differently. You learn very early that some information about yourself is safer kept quiet.
-
-Biles kept it quiet. She had no particular reason to go public with it. She was the most decorated gymnast in American history, she had won four gold medals in Rio, and her ADHD was a medical detail between her and her doctor. Then someone decided to weaponize it. She responded with two tweets posted three minutes apart.
+Her response was two tweets posted three minutes apart.
 
 <figure class="embed-block">
 <div class="tweet-embed"><blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">I have ADHD and I have taken medicine for it since I was a kid please know, I believe in clean sport, have always followed the rules, and will continue to do so as fair play is critical to sport and is very important to me.</p>&mdash; Simone Biles (@Simone_Biles) <a href="https://twitter.com/Simone_Biles/status/775785503496855552">September 13, 2016</a></blockquote>
@@ -69,11 +52,17 @@ Biles kept it quiet. She had no particular reason to go public with it. She was 
 <figcaption>The second tweet, three minutes later. That was her complete public statement.</figcaption>
 </figure>
 
-<figure class="embed-block">
-<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQC6UuqkqyH/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
-<script async src="//www.instagram.com/embed.js"></script>
-<figcaption>Simone Biles on Instagram.</figcaption>
-</figure>
+No press conference. No long statement walking through the trauma of it. Posted publicly, and then she was done with the conversation.
+
+The hackers were counting on shame. They didn't find any.
+
+## What "diagnosed as a kid" actually looks like
+
+The Winkler and Corcoran stories are about adults who spent decades not knowing what was wrong. Biles is different. She was diagnosed young, started medication young, and the medication helped her focus in school. The pattern the system usually catches (can't sit still, brain moves fast, trouble concentrating on things that don't grab her) was there. Her grandparents got her assessed. The assessment came back. She started treatment.
+
+That is, on paper, the system working. And it still doesn't feel like a win, because the part no one talks about is what it costs a kid to grow up knowing their brain is categorized differently. Even with early diagnosis and appropriate treatment, the label follows you. Other kids find out. Teachers treat you differently. You learn very early that some information about yourself is safer kept quiet.
+
+Biles kept it quiet. She had no particular reason to go public with it. She was the most decorated gymnast in American history, she had won four gold medals in Rio, and her ADHD was a medical detail between her and her doctor. Then someone decided to weaponize it.
 
 ## What her brain actually did in the gym
 
@@ -86,6 +75,12 @@ This is the thing that parents of kids who "won't focus" already know but rarely
 The word for this is hyperfocus, and it's not a compensation or a coping mechanism. It's the same wiring that makes sitting through a boring class feel impossible. The brain goes deep on what it finds rewarding and pulls away from what it doesn't. For Biles, gymnastics was rewarding enough that the focus that fled in school showed up in full every time she walked into the gym.
 
 She went on to become the most decorated gymnast in world history, with 30 World Championship medals and 7 Olympic gold medals across two separate Olympic campaigns. She has moves named after her, multiple of them, including skills so difficult no other gymnast was willing to compete them first. The ADHD brain that couldn't sit still in school was doing double-double dismounts on the balance beam at the Olympics.
+
+<figure class="embed-block">
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQC6UuqkqyH/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+<script async src="//www.instagram.com/embed.js"></script>
+<figcaption>Simone Biles on Instagram.</figcaption>
+</figure>
 
 ## Why the hackers miscalculated
 
