@@ -44,8 +44,6 @@ Her response was two tweets posted three minutes apart.
 
 <blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">Having ADHD, and taking medicine for it is nothing to be ashamed of nothing that I&#39;m afraid to let people know.</p>&mdash; Simone Biles (@Simone_Biles) <a href="https://twitter.com/Simone_Biles/status/775785767855611905">September 13, 2016</a></blockquote>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 No press conference. No long statement walking through the trauma of it. Posted publicly, and then she was done with the conversation.
 
 The hackers were counting on shame. They didn't find any.
