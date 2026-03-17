@@ -22,7 +22,7 @@ mentions:
   - name: Simone Biles
     wikidata: Q177775
 sources:
-  - label: "Simone Biles on X, September 13 2016"
+  - label: "Simone Biles on X, September 13, 2016"
     url: "https://x.com/Simone_Biles/status/775785767855611905"
   - label: "Sports Illustrated, September 2016"
     url: "https://www.si.com/olympics/2016/09/13/serena-venus-williams-simone-biles-drug-test-leak-russian-hackers"
@@ -71,4 +71,4 @@ The stigma around ADHD medication is almost entirely about shame. The medication
 
 Biles took her medication every morning of her career. The two things, the medals and the medication, were not in conflict. The second one made the first one possible.
 
-That is worth saying out loud to your kid, not once but regularly. The medication is part of what makes the rest possible. It is not a secret. It is not a compromise. It is just how the brain gets what it needs to do what it can do.
+That is worth saying out loud to your kid, not once but regularly. The medication is part of what makes the rest possible. It is not a secret. It is not a compromise. It is just how the brain gets what it needs.
