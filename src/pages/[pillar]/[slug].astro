@@ -56,7 +56,7 @@ const articleSchema: Record<string, unknown> = {
   "url": canonicalURL,
   "image": `https://livewire.sparkmode.com/og/${post.slug}.png`,
   "keywords": (post.data.keywords ?? []).join(', '),
-  "author": { "@type": "Person", "name": "LiveWire Editorial", "url": "https://livewire.sparkmode.com/about" },
+  "author": { "@type": "Organization", "name": "LiveWire Editorial", "url": "https://livewire.sparkmode.com/about" },
   "publisher": { "@type": "Organization", "name": "SparkMode", "url": "https://sparkmode.com",
     "logo": { "@type": "ImageObject", "url": "https://livewire.sparkmode.com/livewire-wordmark-solo.png" }
   },
