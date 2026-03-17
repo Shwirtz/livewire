@@ -213,8 +213,10 @@ const breadcrumbSchema = {
   :global(.article-body blockquote:has(h2)) { border-left: none; padding: 24px 28px; background: rgba(136,136,170,0.06); border-radius: 8px; margin: 40px 0; font-size: inherit; }
   :global(.article-body blockquote h2) { font-family: var(--font-display); font-size: clamp(22px,3vw,30px); font-weight: 700; color: var(--color-white); margin: 0; }
   :global(.article-body figure) { margin: 40px 0; border-left: 3px solid var(--accent); padding-left: 0; }
+  :global(.article-body figure.tweet-figure) { border-left: none; }
   :global(.article-body figure iframe) { width: 100%; border-radius: 6px; display: block; }
   :global(.article-body figcaption) { font-size: 14px; color: var(--color-muted); margin-top: 10px; font-style: italic; line-height: 1.5; padding-left: 20px; }
+  :global(.article-body figure.tweet-figure figcaption) { padding-left: 0; }
   /* Legacy embed-block support (non-markdown embeds) */
   :global(.embed-block) { margin: 40px 0; border-left: 3px solid var(--accent); }
   :global(.embed-block iframe) { width: 100%; border-radius: 6px; display: block; }
