@@ -1,13 +1,13 @@
 ---
 title: "Simone Biles has taken ADHD medication since she was a kid. She is the most decorated gymnast in history."
 pageTitle: "Simone Biles ADHD: Nothing to Be Ashamed Of"
-updatedDate: 2026-03-17
+updatedDate: 2026-03-24
 publishedDate: 2026-03-24
 pillar: they-get-it-too
 description: "In 2016, Russian hackers leaked Simone Biles' medical records to accuse her of cheating. Her two-sentence response said everything about ADHD and shame."
 tryThisTonightPrompt: "If your kid takes medication for anything brain-related, say this tonight: taking medicine for the way your brain works is the same as taking medicine for anything else. There is nothing to hide."
 author: SparkMode Team
-draft: true
+draft: false
 scheduledDate: 2026-03-24
 keywords:
   - ADHD
